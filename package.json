@@ -4,6 +4,7 @@
   "description": "Read me.",
   "main": "index.js",
   "scripts": {
+    "dev": "webpack serve",
     "build": "webpack"
   },
   "keywords": [],
@@ -17,6 +18,7 @@
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2",
     "webpack": "^5.88.2",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
   }
 }

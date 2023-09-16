@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    // "baseUrl": ".",
     "outDir": "./dist/",
     "noImplicitAny": true,
     "module": "ESNext",
