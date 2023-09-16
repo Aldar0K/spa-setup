@@ -5,6 +5,11 @@ export type BuildOptions = {
   port: number;
 };
 
+export type BuildEnv = {
+  mode: BuildMode;
+  port: number;
+};
+
 export type BuildMode = "production" | "development";
 
 export type BuildPaths = {
