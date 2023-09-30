@@ -3,12 +3,24 @@ import webpack from "webpack";
 
 import { BuildOptions } from "./types";
 
-export const buildLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
+export const buildLoaders = ({
+  isDev,
+}: BuildOptions): webpack.RuleSetRule[] => {
   const cssLoader: webpack.RuleSetRule = {
     test: /\.s[ac]ss$/i,
     use: [
-      options.isDev ? "style-loader" : MiniCssExtractPlugin.loader,
-      "css-loader",
+      isDev ? "style-loader" : MiniCssExtractPlugin.loader,
+      {
+        loader: "css-loader",
+        options: {
+          modules: {
+            auto: /\.module\.\w+$/i,
+            localIdentName: isDev
+              ? "[path][name]__[local]--[hash:base64:5]"
+              : "[hash:base64:8]",
+          },
+        },
+      },
       "sass-loader",
     ],
   };
