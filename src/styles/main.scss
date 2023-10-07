@@ -1,0 +1,18 @@
+// variables
+@use "./variables/global.scss";
+
+// common
+@use "./common/reset.scss";
+
+// themes
+@use "./themes/dark.scss";
+@use "./themes/light.scss";
+
+// libraries
+
+// fonts
+@import url("../assets/fonts/Roboto/stylesheet.scss");
+
+.root {
+  font: var(--font-l);
+}

@@ -1,7 +1,7 @@
 import { FC, Suspense } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 
-import "./main.scss";
+import "./styles/main.scss";
 
 import { AboutPage, MainPage } from "./pages";
 
