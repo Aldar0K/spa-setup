@@ -4,6 +4,8 @@
   "description": "Read me.",
   "main": "index.js",
   "scripts": {
+    "create:component": "generate-react component",
+    "create:page": "generate-react component --type=page",
     "dev": "webpack serve --env port=3000",
     "build:prod": "webpack --env mode=production",
     "build:dev": "webpack --env mode=development"
@@ -17,12 +19,16 @@
     "react-router-dom": "^6.16.0"
   },
   "devDependencies": {
+    "@testing-library/react": "^14.0.0",
+    "@types/jest": "^29.5.5",
+    "@types/mocha": "^10.0.2",
     "@types/node": "^20.6.2",
     "@types/react": "^18.2.23",
     "@types/react-dom": "^18.2.8",
     "@types/react-router-dom": "^5.3.3",
     "@types/webpack": "^5.28.2",
     "css-loader": "^6.8.1",
+    "generate-react-cli": "^8.3.0",
     "html-webpack-plugin": "^5.5.3",
     "mini-css-extract-plugin": "^2.7.6",
     "sass": "^1.68.0",
