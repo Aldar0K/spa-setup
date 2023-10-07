@@ -13,9 +13,9 @@
       "withStory": false,
       "withLazy": false,
       "customTemplates": {
-        "component": "templates/component/TemplateName.tsx",
         "index": "templates/component/index.ts",
-        "style": "templates/component/TemplateName.module.scss"
+        "style": "templates/component/TemplateName.module.scss",
+        "component": "templates/component/TemplateName.tsx"
       }
     },
     "page": {
@@ -24,11 +24,12 @@
       "withStyle": true,
       "withTest": false,
       "withStory": false,
-      "withLazy": false,
+      "withLazy": true,
       "customTemplates": {
-        "component": "templates/page/TemplateName.tsx",
         "index": "templates/page/index.ts",
-        "style": "templates/page/TemplateName.module.scss"
+        "lazy": "templates/page/TemplateName.lazy.tsx",
+        "style": "templates/page/TemplateName.module.scss",
+        "component": "templates/page/TemplateName.tsx"
       }
     }
   }

@@ -1,16 +1,22 @@
-import { FC } from "react";
+import { FC, Suspense } from "react";
+import { Link, Route, Routes } from "react-router-dom";
 
 import "./main.scss";
 
-import { Route, Routes } from "react-router-dom";
+import { AboutPage, MainPage } from "./pages";
 
 const App: FC = () => {
   return (
     <div className="app">
-      <Routes>
-        <Route path="/" />
-        <Route path="/about" />
-      </Routes>
+      <Link to="/">Главная</Link>
+      <Link to="/about">О сайте</Link>
+
+      <Suspense fallback={<h2>Loading...</h2>}>
+        <Routes>
+          <Route path="/" Component={MainPage} />
+          <Route path="/about" Component={AboutPage} />
+        </Routes>
+      </Suspense>
     </div>
   );
 };

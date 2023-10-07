@@ -1,1 +1,1 @@
-export { default as TemplateName } from "./TemplateName";
+export { TemplateNameLazy as TemplateName } from "./TemplateName.lazy";
