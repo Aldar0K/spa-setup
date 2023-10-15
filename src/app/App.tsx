@@ -4,9 +4,10 @@ import { Link, Route, Routes } from "react-router-dom";
 import "./styles/main.scss";
 
 import { useTheme } from "app/providers/ThemeProvider";
-import { classNames } from "../helpers";
+import { classNames } from "shared/lib";
 
-import { AboutPage, MainPage } from "../pages";
+import { AboutPage } from "pages/AboutPage";
+import { MainPage } from "pages/MainPage";
 
 const App: FC = () => {
   const { theme, toggleTheme } = useTheme();
