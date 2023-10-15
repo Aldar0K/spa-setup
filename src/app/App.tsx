@@ -2,10 +2,11 @@ import { FC, Suspense } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 
 import "./styles/main.scss";
-import { useTheme } from "./theme/useTheme";
 
-import { classNames } from "./helpers";
-import { AboutPage, MainPage } from "./pages";
+import { useTheme } from "app/providers/ThemeProvider";
+import { classNames } from "../helpers";
+
+import { AboutPage, MainPage } from "../pages";
 
 const App: FC = () => {
   const { theme, toggleTheme } = useTheme();
