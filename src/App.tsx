@@ -4,13 +4,14 @@ import { Link, Route, Routes } from "react-router-dom";
 import "./styles/main.scss";
 import { useTheme } from "./theme/useTheme";
 
+import { classNames } from "./helpers";
 import { AboutPage, MainPage } from "./pages";
 
 const App: FC = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className={`app ${theme}`}>
+    <div className={classNames("app", {}, [theme])}>
       <button onClick={toggleTheme}>Toggle theme</button>
 
       <Link to="/">Главная</Link>
