@@ -8,4 +8,16 @@
   --font-size-l: 24px;
   --font-line-l: 32px;
   --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-primary);
+
+  // height
+  --height-navbar: 50px;
+
+  // gap
+  --gap-xs: 4px;
+  --gap-s: 8px;
+  --gap-m: 16px;
+  --gap-l: 24px;
+  --gap-xl: 32px;
+
+  // z-index
 }
