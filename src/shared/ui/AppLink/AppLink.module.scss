@@ -1,1 +1,10 @@
-.container {}
+.container {
+}
+
+.primary {
+  color: var(--color-primary);
+}
+
+.secondary {
+  color: var(--color-secondary-inverted);
+}

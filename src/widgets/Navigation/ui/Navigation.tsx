@@ -1,7 +1,7 @@
 import { FC } from "react";
-import { Link } from "react-router-dom";
 
 import { classNames } from "shared/lib";
+import { AppLink, AppLinkThemes } from "shared/ui";
 import cls from "./Navigation.module.scss";
 
 type NavigationProps = {
@@ -14,8 +14,12 @@ export const Navigation: FC<NavigationProps> = ({ className }) => {
       <div></div>
 
       <div className={classNames(cls.links)}>
-        <Link to="/">Главная</Link>
-        <Link to="/about">О сайте</Link>
+        <AppLink theme={AppLinkThemes.SECONDARY} to="/">
+          Главная
+        </AppLink>
+        <AppLink theme={AppLinkThemes.SECONDARY} to="/about">
+          О сайте
+        </AppLink>
       </div>
     </div>
   );

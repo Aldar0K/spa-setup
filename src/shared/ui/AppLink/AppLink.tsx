@@ -1,20 +1,33 @@
 import { FC, ReactNode } from "react";
 import { Link, LinkProps } from "react-router-dom";
 
-import styles from "./AppLink.module.scss";
+import { classNames } from "shared/lib";
+import cls from "./AppLink.module.scss";
+
+export enum AppLinkThemes {
+  PRIMARY = "primary",
+  SECONDARY = "secondary",
+}
 
 type AppLinkProps = LinkProps & {
+  theme?: AppLinkThemes;
   children: ReactNode;
   className?: string;
 };
 
-const AppLink: FC<AppLinkProps> = (props) => {
-  const { to, children, className, ...otherProps } = props;
+export const AppLink: FC<AppLinkProps> = (props) => {
+  const {
+    to,
+    theme = AppLinkThemes.PRIMARY,
+    children,
+    className,
+    ...otherProps
+  } = props;
 
   return (
     <Link
       to={to}
-      className={styles.container}
+      className={classNames(cls.container, {}, [cls[theme], className])}
       data-testid="AppLink"
       {...otherProps}
     >
@@ -22,5 +35,3 @@ const AppLink: FC<AppLinkProps> = (props) => {
     </Link>
   );
 };
-
-export default AppLink;
