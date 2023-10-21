@@ -6,6 +6,7 @@ import cls from "./ThemeSwitcher.module.scss";
 
 import { AppThemes, useTheme } from "app/providers/ThemeProvider";
 import { classNames } from "shared/lib";
+import { Button, ButtonThemes } from "shared/ui";
 
 type ThemeSwitcherProps = {
   className?: string;
@@ -16,14 +17,14 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = (props) => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <button
-      type="button"
+    <Button
+      theme={ButtonThemes.CLEAR}
       className={classNames(cls.container, {}, [className])}
       onClick={toggleTheme}
     >
       Toggle theme
-       <IconLight className={theme === AppThemes.LIGHT ? "" : "hidden"} />
+      <IconLight className={theme === AppThemes.LIGHT ? "" : "hidden"} />
       <IconDark className={theme === AppThemes.DARK ? "" : "hidden"} />
-    </button>
+    </Button>
   );
 };
