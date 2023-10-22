@@ -7,6 +7,16 @@
   min-height: 100vh;
 }
 
+.app__content {
+  display: flex;
+}
+
+.page-wrapper {
+  flex-grow: 1;
+
+  padding: var(--padding-m);
+}
+
 .hidden {
   display: none;
   visibility: hidden;

@@ -1,0 +1,26 @@
+.container {
+  position: relative;
+  display: flex;
+
+  height: calc(100vh - var(--height-navbar));
+  width: var(--width-sidebar);
+
+  flex-shrink: 0;
+  padding: var(--padding-m);
+
+  flex-direction: column;
+  justify-content: space-between;
+
+  background: var(--color-bg-inverted);
+
+  transition: width 300ms;
+}
+
+.collapsed {
+  width: var(--width-sidebar-collapsed);
+}
+
+.switchers {
+  display: flex;
+  justify-content: center;
+}

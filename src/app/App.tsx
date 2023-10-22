@@ -5,17 +5,19 @@ import "./styles/main.scss";
 import { useTheme } from "app/providers/ThemeProvider";
 import { AppRouter } from "app/providers/router";
 import { classNames } from "shared/lib";
-import { Navigation } from "widgets/Navigation";
-import { ThemeSwitcher } from "widgets/ThemeSwitcher";
+import { Header } from "widgets/Header";
+import { Sidebar } from "widgets/Sidebar";
 
 const App: FC = () => {
   const { theme } = useTheme();
 
   return (
     <div className={classNames("app", {}, [theme])}>
-      <Navigation />
-      <AppRouter />
-      <ThemeSwitcher />
+      <Header />
+      <div className="app__content">
+        <Sidebar />
+        <AppRouter />
+      </div>
     </div>
   );
 };

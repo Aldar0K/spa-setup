@@ -7,7 +7,7 @@ type TemplateNameProps = {
   className?: string;
 };
 
-export const TemplateName: FC<TemplateNameProps> = ({ className }) => (
+const TemplateName: FC<TemplateNameProps> = ({ className }) => (
   <div
     className={classNames(cls.container, {}, [className])}
     data-testid="TemplateName"
@@ -15,3 +15,5 @@ export const TemplateName: FC<TemplateNameProps> = ({ className }) => (
     TemplateName
   </div>
 );
+
+export default TemplateName;
