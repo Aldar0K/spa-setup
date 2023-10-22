@@ -1,4 +1,8 @@
 {
-  "Перевести": "Translate",
-  "Привет": "Hello"
+  "Main": "Main",
+  "About": "About",
+  "Translate": "Translate",
+  "Hello": "Hello",
+  "Language": "English",
+  "Help": "Help"
 }

@@ -1,9 +1,10 @@
 .container {
   cursor: pointer;
+
+  color: var(--color-primary);
 }
 
 .clear {
-  margin: 0;
   padding: 0;
 
   border: none;
