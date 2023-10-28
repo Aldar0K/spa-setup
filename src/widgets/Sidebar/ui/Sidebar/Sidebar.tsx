@@ -1,9 +1,9 @@
-import { FC, useState } from "react";
+import { FC, useState } from 'react';
 
-import { classNames } from "shared/lib";
-import { LangSwitcher } from "widgets/LangSwitcher";
-import { ThemeSwitcher } from "widgets/ThemeSwitcher";
-import cls from "./Sidebar.module.scss";
+import { classNames } from 'shared/lib';
+import { LangSwitcher } from 'widgets/LangSwitcher';
+import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
+import cls from './Sidebar.module.scss';
 
 type SidebarProps = {
   className?: string;
@@ -20,7 +20,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
         {
           [cls.collapsed]: collapsed,
         },
-        [className]
+        [className],
       )}
       data-testid="Sidebar"
     >
@@ -35,4 +35,3 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
     </div>
   );
 };
- 

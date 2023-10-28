@@ -1,3 +1,3 @@
-import { lazy } from "react";
+import { lazy } from 'react';
 
-export const TemplateNameLazy = lazy(() => import("./TemplateName"));
+export const TemplateNameLazy = lazy(() => import('./TemplateName'));

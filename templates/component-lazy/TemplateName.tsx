@@ -1,7 +1,7 @@
-import { FC } from "react";
+import { FC } from 'react';
 
-import { classNames } from "shared/lib";
-import cls from "./TemplateName.module.scss";
+import { classNames } from 'shared/lib';
+import cls from './TemplateName.module.scss';
 
 type TemplateNameProps = {
   className?: string;

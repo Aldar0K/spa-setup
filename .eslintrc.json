@@ -1,0 +1,29 @@
+{
+  "extends": ["airbnb", "airbnb-typescript", "airbnb/hooks"],
+  "env": {
+    "node": true,
+    "browser": true,
+    "jest": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "react/function-component-definition": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/require-default-props": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/button-has-type": "off",
+    "eslintreact/jsx-props-no-spreading": "off",
+    "@typescript-eslint/naming-convention": "off",
+    "no-underscore-dangle": "off",
+    "import/prefer-default-export": "warn",
+    "@typescript-eslint/no-unused-vars": "warn"
+  }
+}
