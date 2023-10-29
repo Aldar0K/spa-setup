@@ -1,13 +1,13 @@
 // common
-@import "./common/reset.scss";
-@import "./common/global.scss";
+@import "./common/reset";
+@import "./common/global";
 
 // variables
-@import "./variables/variables.scss";
+@import "./variables/variables";
 
 // themes
-@import "themes/light.scss";
-@import "themes/dark.scss";
+@import "themes/light";
+@import "themes/dark";
 
 // fonts
 @import url("shared/assets/fonts/Roboto/stylesheet.scss");

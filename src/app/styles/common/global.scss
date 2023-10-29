@@ -1,21 +1,18 @@
 .app {
   font: var(--font-m);
-
+  min-height: 100vh;
   background: var(--color-bg);
   color: var(--color-primary);
-
-  min-height: 100vh;
 }
 
 .app__content {
   display: flex;
   
-  
+
 }
 
 .page-wrapper {
   flex-grow: 1;
-
   padding: var(--padding-m);
 }
 
