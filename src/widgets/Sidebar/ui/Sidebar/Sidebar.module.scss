@@ -1,13 +1,16 @@
 .container {
   position: relative;
+
   display: flex;
-  height: calc(100vh - var(--height-navbar));
-  width: var(--width-sidebar);
-  flex-shrink: 0;
-  padding: var(--padding-m);
   flex-direction: column;
+  flex-shrink: 0;
   justify-content: space-between;
+  width: var(--width-sidebar);
+  height: calc(100vh - var(--height-navbar));
+  padding: var(--padding-m);
+
   background: var(--color-bg-inverted);
+
   transition: width 300ms;
 }
 
@@ -17,6 +20,6 @@
 
 .switchers {
   display: flex;
-  justify-content: center;
   gap: var(--gap-l);
+  justify-content: center;
 }

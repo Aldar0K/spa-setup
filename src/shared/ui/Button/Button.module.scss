@@ -1,11 +1,13 @@
 .container {
-  cursor: pointer;
   color: var(--color-primary);
+
+  cursor: pointer;
 }
 
 .clear {
   padding: 0;
-  border: none;
+
   background: none;
+  border: none;
   outline: none;
 }
