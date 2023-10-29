@@ -1,20 +1,15 @@
 .container {
   display: flex;
-
   height: var(--height-navbar);
   width: 100%;
-
   padding: 20px;
-
   justify-content: space-between;
   align-items: center;
   gap: var(--gap-s);
-
   background: var(--color-bg-inverted);
 }
 
 .links {
   display: flex;
-
   gap: var(--gap-s);
 }

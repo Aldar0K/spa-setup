@@ -9,7 +9,6 @@ const MainPage: FC = () => {
   return (
     <div className={styles.container} data-testid="MainPage">
       {t('Main')}
-      {t('New word')}
     </div>
   );
 };
