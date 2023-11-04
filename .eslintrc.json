@@ -1,10 +1,11 @@
 {
-  "extends": ["airbnb", "airbnb-typescript", "airbnb/hooks"],
   "env": {
     "node": true,
     "browser": true,
     "jest": true
   },
+  "extends": ["airbnb", "airbnb-typescript", "airbnb/hooks", "plugin:i18next/recommended"],
+  "plugins": ["i18next"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
