@@ -2,9 +2,10 @@ import { FC, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import { routeConfig } from 'shared/config/routeConfig';
+import { PageLoader } from 'widgets/PageLoader';
 
 const AppRouter: FC = () => (
-  <Suspense fallback={<h2>Loading...</h2>}>
+  <Suspense fallback={<PageLoader />}>
     <Routes>
       {Object.values(routeConfig).map(({ path, Component }) => (
         <Route
