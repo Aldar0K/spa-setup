@@ -5,5 +5,7 @@
   "Hello": "Hello",
   "Language": "English",
   "Help": "Help",
-  "Toggle": "Toggle"
+  "Toggle": "Toggle",
+  "Something went wrong": "Something went wrong",
+  "Reload the page": "Reload the page"
 }

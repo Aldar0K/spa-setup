@@ -5,5 +5,8 @@
   "Hello": "Привет",
   "Language": "Русский",
   "Help": "Помощь",
-  "Toggle": "Переключить"
+  "Toggle": "Переключить",
+  "Something went wrong": "Что-то пошло не так",
+  "Refresh the page": "Обновить страничку",
+  "Reload the page": "Обновить страничку"
 }

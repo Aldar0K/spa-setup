@@ -1,4 +1,4 @@
-import { FC, Suspense, useEffect } from 'react';
+import { FC, Suspense } from 'react';
 
 import './styles/main.scss';
 
@@ -10,12 +10,6 @@ import { Sidebar } from 'widgets/Sidebar';
 
 const App: FC = () => {
   const { theme } = useTheme();
-
-  useEffect(() => {
-    if (Math.random() < 0.5) {
-      throw new Error('Some error');
-    }
-  }, []);
 
   return (
     <Suspense fallback="">
