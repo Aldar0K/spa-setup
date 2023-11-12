@@ -4,7 +4,12 @@
     "browser": true,
     "jest": true
   },
-  "extends": ["airbnb", "airbnb-typescript", "airbnb/hooks", "plugin:i18next/recommended"],
+  "extends": [
+    "airbnb",
+    "airbnb-typescript",
+    "airbnb/hooks",
+    "plugin:i18next/recommended"
+  ],
   "plugins": ["i18next"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -25,7 +30,21 @@
     "no-underscore-dangle": "off",
     "import/prefer-default-export": "off",
     "@typescript-eslint/naming-convention": "off",
-    "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
-    "max-len": ["warn", 120]
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      { "argsIgnorePattern": "^_" }
+    ],
+    "max-len": ["warn", 120],
+    "i18next/no-literal-string": [
+      "error",
+      {
+        "words": {
+          "exclude": [
+            "test",
+            "Test"
+          ]
+        }
+      }
+    ]
   }
 }
