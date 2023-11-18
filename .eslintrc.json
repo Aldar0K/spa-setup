@@ -20,6 +20,14 @@
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
+  "overrides": [
+    {
+      "files": ["**/src/**/*.{test,spec}.{js,jsx,ts,tsx}"],
+      "rules": {
+        "i18next/no-literal-string": "off"
+      }
+    }
+  ],
   "rules": {
     "react/function-component-definition": "off",
     "react/react-in-jsx-scope": "off",
@@ -38,12 +46,8 @@
     "i18next/no-literal-string": [
       "error",
       {
-        "words": {
-          "exclude": [
-            "test",
-            "Test"
-          ]
-        }
+        "markupOnly": true,
+        "ignoreAttribute": ["data-testid"]
       }
     ],
     "import/no-extraneous-dependencies": [
