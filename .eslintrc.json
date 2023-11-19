@@ -8,9 +8,12 @@
     "airbnb",
     "airbnb-typescript",
     "airbnb/hooks",
-    "plugin:i18next/recommended"
+    "plugin:i18next/recommended",
+    "plugin:storybook/recommended"
   ],
-  "plugins": ["i18next"],
+  "plugins": [
+    "i18next"
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
@@ -18,11 +21,15 @@
     },
     "ecmaVersion": "latest",
     "sourceType": "module",
-    "project": ["./tsconfig.json"]
+    "project": [
+      "./tsconfig.json"
+    ]
   },
   "overrides": [
     {
-      "files": ["**/src/**/*.{test,spec}.{js,jsx,ts,tsx}"],
+      "files": [
+        "**/src/**/*.{test,spec}.{js,jsx,ts,tsx}"
+      ],
       "rules": {
         "i18next/no-literal-string": "off"
       }
@@ -40,19 +47,29 @@
     "@typescript-eslint/naming-convention": "off",
     "@typescript-eslint/no-unused-vars": [
       "warn",
-      { "argsIgnorePattern": "^_" }
+      {
+        "argsIgnorePattern": "^_"
+      }
     ],
-    "max-len": ["warn", 120],
+    "max-len": [
+      "warn",
+      120
+    ],
     "i18next/no-literal-string": [
       "error",
       {
         "markupOnly": true,
-        "ignoreAttribute": ["data-testid", "to"]
+        "ignoreAttribute": [
+          "data-testid",
+          "to"
+        ]
       }
     ],
     "import/no-extraneous-dependencies": [
       "error",
-      { "devDependencies": true }
+      {
+        "devDependencies": true
+      }
     ]
   }
 }
