@@ -9,7 +9,7 @@ type PageErrorProps = {
   className?: string
 };
 
-const PageError: FC<PageErrorProps> = ({ className }) => {
+export const PageError: FC<PageErrorProps> = ({ className }) => {
   const { t } = useTranslation();
 
   const refreshPage = () => {
@@ -25,5 +25,3 @@ const PageError: FC<PageErrorProps> = ({ className }) => {
     </div>
   );
 };
-
-export default PageError;
