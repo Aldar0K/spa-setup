@@ -1,7 +1,7 @@
 import path from "path";
 import { Configuration } from "webpack";
 
-import { buildCssLoader } from "../build/loaders";
+import { buildCssLoader, buildSvgLoader } from "../build/loaders";
 import { BuildPaths } from '../build/types';
 
 export default ({config}: {config: Configuration}) => {
@@ -14,6 +14,15 @@ export default ({config}: {config: Configuration}) => {
   config.resolve?.modules?.push(paths.src);
 
   config.resolve?.extensions?.push('.ts', '.tsx');
+
+  config.module!.rules = config.module!.rules!.map((rule: any) => {
+    if (/svg/.test(rule.test as string)) {
+      return { ...rule, exclude: /\.svg$/i };
+    }
+
+    return rule;
+  });
+  config.module?.rules.push(buildSvgLoader());
 
   config.module?.rules?.push(buildCssLoader(true));
 
