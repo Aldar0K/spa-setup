@@ -15,14 +15,16 @@ export default ({config}: {config: Configuration}) => {
 
   config.resolve?.extensions?.push('.ts', '.tsx');
 
-  config.module!.rules = config.module!.rules!.map((rule: any) => {
+  if (config.module?.rules) {
+    config.module.rules = config.module.rules.map((rule: any) => {
     if (/svg/.test(rule.test as string)) {
       return { ...rule, exclude: /\.svg$/i };
     }
 
     return rule;
   });
-  config.module?.rules.push(buildSvgLoader());
+  }
+  config.module?.rules?.push(buildSvgLoader());
 
   config.module?.rules?.push(buildCssLoader(true));
 
