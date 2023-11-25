@@ -7,7 +7,7 @@ type LoaderProps = {
   className?: string;
 };
 
-const Loader: FC<LoaderProps> = ({ className }) => (
+export const Loader: FC<LoaderProps> = ({ className }) => (
   <div className={classNames(cls.container, {}, [className])}>
     <div />
     <div />
@@ -15,5 +15,3 @@ const Loader: FC<LoaderProps> = ({ className }) => (
     <div />
   </div>
 );
-
-export default Loader;
