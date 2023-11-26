@@ -1,6 +1,7 @@
 import webpack from "webpack";
 
-import { buildCssLoader, buildSvgLoader } from './loaders';
+import { buildCssLoader } from './loaders/buildCssLoader';
+import { buildSvgLoader } from './loaders/buildSvgLoader';
 import { BuildOptions } from "./types";
 
 export const buildLoaders = ({
