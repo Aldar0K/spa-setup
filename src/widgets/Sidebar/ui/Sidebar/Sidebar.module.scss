@@ -18,6 +18,12 @@
   width: var(--width-sidebar-collapsed);
 }
 
+.button {
+  position: absolute;
+  top: 40px;
+  right: -40px;
+}
+
 .switchers {
   display: flex;
   gap: var(--gap-l);
