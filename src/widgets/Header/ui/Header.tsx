@@ -18,12 +18,6 @@ export const Header: FC<NavigationProps> = ({ className }) => {
         <AppLink theme={AppLinkThemes.SECONDARY} to="/">
           {t('Main')}
         </AppLink>
-        <AppLink theme={AppLinkThemes.SECONDARY} to="/about">
-          {t('About')}
-        </AppLink>
-        <AppLink theme={AppLinkThemes.SECONDARY} to="/help">
-          {t('Help')}
-        </AppLink>
       </div>
     </div>
   );
