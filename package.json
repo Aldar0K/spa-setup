@@ -39,6 +39,7 @@
     }
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.17",
     "i18next": "^23.6.0",
     "i18next-browser-languagedetector": "^7.1.0",
     "i18next-http-backend": "^2.2.2",

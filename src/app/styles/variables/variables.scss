@@ -22,6 +22,7 @@
   // width
   --width-sidebar: 300px;
   --width-sidebar-collapsed: 80px;
+  --width-modal: 600px;
 
   // padding
   --padding-s: 10px;
@@ -37,4 +38,8 @@
   --gap-xl: 32px;
 
   // z-index
+  --z-index-modal: 50;
+
+  // color
+  --color-backdrop: rgb(0 0 0 / 30%);
 }
