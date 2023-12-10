@@ -18,15 +18,22 @@ type Story = StoryObj<typeof meta>;
 
 export const DefaultLight: Story = {
   decorators: [withThemeDecorator(AppThemes.LIGHT)],
+  args: {
+    isOpen: true,
+  },
 };
 
 export const DefaultDark: Story = {
   decorators: [withThemeDecorator(AppThemes.DARK)],
+  args: {
+    isOpen: true,
+  },
 };
 
 export const TitleLight: Story = {
   decorators: [withThemeDecorator(AppThemes.LIGHT)],
   args: {
+    isOpen: true,
     title: 'Some title',
   },
 };
@@ -34,6 +41,7 @@ export const TitleLight: Story = {
 export const TitleDark: Story = {
   decorators: [withThemeDecorator(AppThemes.DARK)],
   args: {
+    isOpen: true,
     title: 'Some title',
   },
 };
