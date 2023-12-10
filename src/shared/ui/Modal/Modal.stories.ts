@@ -23,3 +23,17 @@ export const DefaultLight: Story = {
 export const DefaultDark: Story = {
   decorators: [withThemeDecorator(AppThemes.DARK)],
 };
+
+export const TitleLight: Story = {
+  decorators: [withThemeDecorator(AppThemes.LIGHT)],
+  args: {
+    title: 'Some title',
+  },
+};
+
+export const TitleDark: Story = {
+  decorators: [withThemeDecorator(AppThemes.DARK)],
+  args: {
+    title: 'Some title',
+  },
+};

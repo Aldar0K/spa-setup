@@ -22,14 +22,30 @@
 }
 
 .panel {
+  position: relative;
+
   width: 100%;
   max-width: var(--width-modal);
 
   margin: 0 auto;
   padding: var(--padding-s);
 
-  color: var(--color-primary);
+  color: var(--color-primary-inverted);
 
   background: var(--color-bg-inverted);
-  border-radius: 16px;
+  border-radius: var(--border-radius-s);
+}
+
+.title {
+  margin-bottom: 8px;
+}
+
+.description {
+  margin-bottom: 16px;
+}
+
+.button-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
 }

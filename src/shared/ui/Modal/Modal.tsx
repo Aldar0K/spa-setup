@@ -1,9 +1,8 @@
-/* eslint-disable i18next/no-literal-string */
-
 import { Dialog } from '@headlessui/react';
 import { FC, ReactNode, useState } from 'react';
 
 import { useTheme } from 'app/providers/ThemeProvider';
+import IconClose from 'shared/assets/icons/close.svg';
 import { classNames } from 'shared/lib';
 import cls from './Modal.module.scss';
 
@@ -36,14 +35,23 @@ export const Modal: FC<ModalProps> = (props) => {
 
       <div className={cls['panel-wrapper']}>
         <Dialog.Panel className={classNames(cls.panel, {}, [className])}>
-          <Dialog.Title className={cls.title}>Deactivate account</Dialog.Title>
-          <Dialog.Description className={cls.description}>
-            This will permanently deactivate your account
-          </Dialog.Description>
+          {title && (
+            <Dialog.Title title={title} className={cls.title}>
+              {title}
+            </Dialog.Title>
+          )}
+
+          {description && (
+            <Dialog.Description title={description} className={cls.description}>
+              {description}
+            </Dialog.Description>
+          )}
 
           {children}
 
-          <button onClick={handleClose} className={cls['button-close']}>Deactivate</button>
+          <button onClick={handleClose} className={cls['button-close']}>
+            <IconClose />
+          </button>
         </Dialog.Panel>
       </div>
     </Dialog>
