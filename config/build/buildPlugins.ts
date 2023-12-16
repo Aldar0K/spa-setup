@@ -28,6 +28,10 @@ export const buildPlugins = ({
           from: paths.locales,
           to: paths.buildLocales,
         },
+        {
+          from: paths.meta,
+          to: paths.buildMeta,
+        }
       ],
     })
   ];

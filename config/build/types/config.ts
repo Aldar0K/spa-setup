@@ -19,4 +19,6 @@ export type BuildPaths = {
   src: string;
   locales: string;
   buildLocales: string;
+  meta: string;
+  buildMeta: string;
 };
