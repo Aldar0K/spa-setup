@@ -1,3 +1,4 @@
+import CopyWebpackPlugin from "copy-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import webpack from "webpack";
@@ -21,6 +22,14 @@ export const buildPlugins = ({
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
     }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: paths.locales,
+          to: paths.buildLocales,
+        },
+      ],
+    })
   ];
 
   if (isDev) {
