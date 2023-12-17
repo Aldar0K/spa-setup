@@ -7,7 +7,9 @@ type TemplateNameProps = {
   className?: string;
 };
 
-export const TemplateName: FC<TemplateNameProps> = ({ className }) => {
+export const TemplateName: FC<TemplateNameProps> = props => {
+  const { className } = props;
+
   return (
     <div
       className={classNames(cls.container, {}, [className])}

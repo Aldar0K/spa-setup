@@ -1,7 +1,9 @@
 import { Action, combineReducers } from '@reduxjs/toolkit';
 
+import { counterReducer } from 'entities/counter';
+
 export const reducer = combineReducers({
-  auth: undefined,
+  counter: counterReducer,
 });
 
 const rootReducer = (state: StateSchema, action: Action): StateSchema => {

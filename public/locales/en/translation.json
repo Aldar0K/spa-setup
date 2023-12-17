@@ -8,5 +8,8 @@
   "Toggle": "Toggle",
   "Something went wrong": "Something went wrong",
   "Reload the page": "Reload the page",
-  "Short Language": "En"
+  "Short Language": "En",
+  "Increment": "Increment",
+  "Decrement": "Decrement",
+  "Counter": "Counter"
 }
