@@ -1,5 +1,5 @@
 import {
-  FC, ReactNode, useMemo, useState,
+  FC, ReactNode, useEffect, useMemo, useState,
 } from 'react';
 import {
   AppThemes,
@@ -17,6 +17,10 @@ type ThemeProviderProps = {
 
 const ThemeProvider: FC<ThemeProviderProps> = ({ children, initialTheme = defaultTheme }) => {
   const [theme, setTheme] = useState<AppThemes>(initialTheme);
+
+  useEffect(() => {
+    document.body.classList.add(theme);
+  }, [theme]);
 
   const defaultProps = useMemo(
     () => ({

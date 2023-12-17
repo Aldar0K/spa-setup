@@ -1,8 +1,10 @@
-.app {
-  min-height: 100vh;
-
+body {
   color: var(--color-primary);
   font: var(--font-m);
+}
+
+.app {
+  min-height: 100vh;
 
   background: var(--color-bg);
 }
