@@ -11,5 +11,8 @@
   "Reload the page": "Обновить страничку",
   "Short Language": "Ру",
   "Increment": "Увеличить",
-  "Decrement": "Уменьшить"
+  "Decrement": "Уменьшить",
+  "Login": "Войти",
+  "username": "имя",
+  "password": "пароль"
 }

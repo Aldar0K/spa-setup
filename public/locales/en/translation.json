@@ -11,5 +11,8 @@
   "Short Language": "En",
   "Increment": "Increment",
   "Decrement": "Decrement",
-  "Counter": "Counter"
+  "Counter": "Counter",
+  "Login": "Login",
+  "username": "username",
+  "password": "password"
 }

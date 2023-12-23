@@ -1,1 +1,11 @@
-.container {}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  width: 500px;
+}
+
+.button-submit {
+  margin-left: auto;
+}

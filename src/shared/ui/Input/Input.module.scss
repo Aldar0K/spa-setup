@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.placeholder {
+  color: var(--color-primary-inverted);
+  font-size: var(--font-size-m);
+  line-height: var(--font-line-m);
+}
+
+.input {
+  width: 100%;
+  padding: 8px;
+
+  color: var(--color-primary);
+  font-size: var(--font-size-s);
+  line-height: var(--font-line-s);
+
+  background-color: var(--color-bg);
+}
