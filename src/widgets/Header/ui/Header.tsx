@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { LoginModal } from 'features/user/auth-by-username';
+import { LoginModal } from 'features/user/login-by-username';
 import { classNames } from 'shared/lib';
 import {
   AppLink, AppLinkThemes, Button, ButtonThemes,

@@ -20,6 +20,7 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   theme?: ButtonThemes;
   square?: boolean;
   size?: ButtonSizes;
+  disabled?: boolean;
   className?: string;
 };
 
@@ -30,6 +31,7 @@ export const Button: FC<ButtonProps> = (props) => {
     theme,
     square = false,
     size = ButtonSizes.M,
+    disabled,
     className,
     ...otherProps
   } = props;
@@ -41,9 +43,11 @@ export const Button: FC<ButtonProps> = (props) => {
         cls.container,
         {
           [cls.square]: square,
+          [cls.disabled]: disabled,
         },
         [cls[theme], cls[size], className],
       )}
+      disabled={disabled}
       data-testid="Button"
       {...otherProps}
     >
