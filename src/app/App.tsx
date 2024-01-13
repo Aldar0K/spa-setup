@@ -1,15 +1,22 @@
-import { FC, Suspense } from 'react';
+import { FC, Suspense, useEffect } from 'react';
 
 import './styles/main.scss';
 
-import { useTheme } from 'app/providers/ThemeProvider';
-import { AppRouter } from 'app/providers/router';
+import { userActions } from 'entities/user';
 import { classNames } from 'shared/lib';
 import { Header } from 'widgets/Header';
 import { Sidebar } from 'widgets/Sidebar';
+import { useAppDispatch } from './providers/StoreProvider';
+import { useTheme } from './providers/ThemeProvider';
+import { AppRouter } from './providers/router';
 
 const App: FC = () => {
   const { theme } = useTheme();
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(userActions.initAuthData());
+  }, [dispatch]);
 
   return (
     <Suspense fallback="">

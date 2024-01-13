@@ -3,12 +3,14 @@ import { useTranslation } from 'react-i18next';
 
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
 import { classNames } from 'shared/lib';
-import { Button, ButtonThemes, Input } from 'shared/ui';
+import {
+  Button, ButtonThemes, Input, Text,
+} from 'shared/ui';
 import { getError } from '../../model/selectors/getError';
 import { getIsLoading } from '../../model/selectors/getIsLoading';
 import { getPassword } from '../../model/selectors/getPassword';
 import { getUsername } from '../../model/selectors/getUsername';
-import { loginByUsername } from '../../model/services/loginByUsername';
+import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import { loginByUsernameActions } from '../../model/slice';
 import cls from './LoginForm.module.scss';
 
@@ -26,7 +28,7 @@ export const LoginForm = memo((props: LoginFormProps) => {
   const error = useAppSelector(getError);
 
   const handleUsernameChange = useCallback((value: string) => {
-    dispatch(loginByUsernameActions.setName(value));
+    dispatch(loginByUsernameActions.setUsername(value));
   }, [dispatch]);
 
   const handlePasswordChange = useCallback((value: string) => {
@@ -44,6 +46,8 @@ export const LoginForm = memo((props: LoginFormProps) => {
       className={classNames(cls.form, {}, [className])}
       data-testid="LoginForm"
     >
+      <Text heading={t('Authorization')} />
+
       <Input
         type="text"
         placeholder={t('username')}
@@ -60,13 +64,13 @@ export const LoginForm = memo((props: LoginFormProps) => {
         onChange={handlePasswordChange}
       />
 
-      {error && <p className={cls.error}>{error}</p>}
+      {error && <Text theme="error" text={error} />}
 
       <Button
         type="submit"
         theme={ButtonThemes.BACKGROUND}
         className={cls['button-submit']}
-        disabled={isLoading}
+        loading={isLoading}
       >
         {t('Login')}
       </Button>

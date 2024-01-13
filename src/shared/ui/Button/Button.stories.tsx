@@ -149,3 +149,31 @@ export const SquareSizeLargeDark: Story = {
   },
   decorators: [withThemeDecorator(AppThemes.DARK)],
 };
+
+export const DisabledLight: Story = {
+  args: {
+    disabled: true,
+  },
+  decorators: [withThemeDecorator(AppThemes.LIGHT)],
+};
+
+export const DisabledDark: Story = {
+  args: {
+    disabled: true,
+  },
+  decorators: [withThemeDecorator(AppThemes.DARK)],
+};
+
+export const LoadingLight: Story = {
+  args: {
+    loading: true,
+  },
+  decorators: [withThemeDecorator(AppThemes.LIGHT)],
+};
+
+export const LoadingDark: Story = {
+  args: {
+    loading: true,
+  },
+  decorators: [withThemeDecorator(AppThemes.DARK)],
+};

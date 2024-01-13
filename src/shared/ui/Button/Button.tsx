@@ -1,4 +1,5 @@
 import { ButtonHTMLAttributes, FC } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { classNames } from 'shared/lib';
 import cls from './Button.module.scss';
@@ -21,6 +22,7 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   square?: boolean;
   size?: ButtonSizes;
   disabled?: boolean;
+  loading?: boolean;
   className?: string;
 };
 
@@ -32,9 +34,11 @@ export const Button: FC<ButtonProps> = (props) => {
     square = false,
     size = ButtonSizes.M,
     disabled,
+    loading,
     className,
     ...otherProps
   } = props;
+  const { t } = useTranslation();
 
   return (
     <button
@@ -47,11 +51,11 @@ export const Button: FC<ButtonProps> = (props) => {
         },
         [cls[theme], cls[size], className],
       )}
-      disabled={disabled}
+      disabled={disabled || loading}
       data-testid="Button"
       {...otherProps}
     >
-      {children}
+      {loading ? t('Loading') : children}
     </button>
   );
 };

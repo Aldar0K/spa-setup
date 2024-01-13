@@ -14,5 +14,8 @@
   "Counter": "Counter",
   "Login": "Login",
   "username": "username",
-  "password": "password"
+  "password": "password",
+  "Loading": "Loading...",
+  "Authorization": "Authorization",
+  "WrongUsernameOrPassword": "Your login or password is wrong!"
 }

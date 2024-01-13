@@ -14,5 +14,8 @@
   "Decrement": "Уменьшить",
   "Login": "Войти",
   "username": "имя",
-  "password": "пароль"
+  "password": "пароль",
+  "Loading": "Загрузка...",
+  "Authorization": "Авторизация",
+  "WrongUsernameOrPassword": "Неверное имя пользователя или пароль!"
 }
