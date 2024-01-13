@@ -1,6 +1,8 @@
 import { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
+import { getUserAuthData, userActions } from 'entities/user';
 import { LoginModal } from 'features/user/login-by-username';
 import { classNames } from 'shared/lib';
 import {
@@ -14,10 +16,35 @@ type NavigationProps = {
 
 export const Header: FC<NavigationProps> = ({ className }) => {
   const { t } = useTranslation();
+  const dispatch = useAppDispatch();
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const authData = useAppSelector(getUserAuthData);
 
   const openAuthModal = () => setIsAuthModalOpen(true);
   const closeAuthModal = () => setIsAuthModalOpen(false);
+
+  const handleLogout = () => {
+    dispatch(userActions.logout());
+  };
+
+  if (authData) {
+    return (
+      <div className={classNames(cls.container, {}, [className])}>
+        <div className={classNames(cls.links)}>
+          <AppLink theme={AppLinkThemes.SECONDARY} to="/">
+            {t('Main')}
+          </AppLink>
+        </div>
+
+        <Button
+          theme={ButtonThemes.CLEAR}
+          onClick={handleLogout}
+        >
+          {t('Logout')}
+        </Button>
+      </div>
+    );
+  }
 
   return (
     <div className={classNames(cls.container, {}, [className])}>

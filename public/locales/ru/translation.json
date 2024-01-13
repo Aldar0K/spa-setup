@@ -17,5 +17,6 @@
   "password": "пароль",
   "Loading": "Загрузка...",
   "Authorization": "Авторизация",
-  "WrongUsernameOrPassword": "Неверное имя пользователя или пароль!"
+  "WrongUsernameOrPassword": "Неверное имя пользователя или пароль!",
+  "Logout": "Выйти"
 }

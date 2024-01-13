@@ -16,6 +16,7 @@ const rootReducer = (state: StateSchema, action: Action): StateSchema => {
   return reducer(nextState, action);
 };
 
-export type StateSchema = ReturnType<typeof reducer>;
+// Partial? is it ok?
+export type StateSchema = Partial<ReturnType<typeof reducer>>;
 
 export default rootReducer as typeof reducer;

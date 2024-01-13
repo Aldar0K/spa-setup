@@ -17,5 +17,6 @@
   "password": "password",
   "Loading": "Loading...",
   "Authorization": "Authorization",
-  "WrongUsernameOrPassword": "Your login or password is wrong!"
+  "WrongUsernameOrPassword": "Your login or password is wrong!",
+  "Logout": "Logout"
 }
