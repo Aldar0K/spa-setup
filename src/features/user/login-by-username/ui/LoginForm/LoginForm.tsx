@@ -64,7 +64,7 @@ export const LoginForm = memo((props: LoginFormProps) => {
         onChange={handlePasswordChange}
       />
 
-      {error && <Text theme="error" text={error} />}
+      {error && <Text theme="error" text={t('WrongUsernameOrPassword')} />}
 
       <Button
         type="submit"
