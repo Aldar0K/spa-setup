@@ -1,7 +1,7 @@
-import { FC } from 'react';
+import { FC, Suspense } from 'react';
 
 import { classNames } from 'shared/lib';
-import { Modal } from 'shared/ui';
+import { Loader, Modal } from 'shared/ui';
 import { LoginForm } from '../LoginForm';
 import cls from './LoginModal.module.scss';
 
@@ -21,7 +21,9 @@ export const LoginModal: FC<LoginModalProps> = (props) => {
       className={classNames(cls.container, {}, [className])}
       data-testid="LoginModal"
     >
-      <LoginForm />
+      <Suspense fallback={<Loader />}>
+        <LoginForm />
+      </Suspense>
     </Modal>
   );
 };

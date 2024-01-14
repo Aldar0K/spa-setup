@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { AppThemes } from 'app/providers/ThemeProvider';
 import { withStoreDecorator } from 'shared/config/storybook/withStoreDecorator/withStoreDecorator';
 import { withThemeDecorator } from 'shared/config/storybook/withThemeDecorator/withThemeDecorator';
-import { LoginForm } from './LoginForm';
+import LoginForm from './LoginForm';
 
 const meta = {
   title: 'features/LoginForm',
