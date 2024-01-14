@@ -1,8 +1,8 @@
 import { FC, ReactNode } from 'react';
 import { Provider } from 'react-redux';
 
-import { StateSchema } from '../model/reducers';
 import { createReduxStore } from '../model/store';
+import { StateSchema } from '../model/types';
 
 type StoreProviderProps = {
   children: ReactNode;
