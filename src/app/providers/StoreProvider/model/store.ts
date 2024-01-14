@@ -1,20 +1,26 @@
-import { configureStore } from '@reduxjs/toolkit';
-import {
-  persistStore,
-} from 'redux-persist';
+import { ReducersMapObject, configureStore } from '@reduxjs/toolkit';
+import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
+
+import { counterReducer } from 'entities/counter';
+import { userReducer } from 'entities/user';
 import { createReducerManager } from './reducerManager';
-import rootReducer, { StateSchema } from './reducers';
+import { StateSchema } from './types';
 
 const createReduxStore = (initialState?: StateSchema) => {
+  const rootReducers: ReducersMapObject<StateSchema> = {
+    counter: counterReducer,
+    user: userReducer,
+  };
+
+  const reducerManager = createReducerManager(rootReducers);
+
   const store = configureStore<StateSchema>(
     {
-      reducer: rootReducer,
+      reducer: reducerManager.reduce,
       devTools: __IS_DEV__,
       preloadedState: initialState,
     },
   );
-
-  const reducerManager = createReducerManager(rootReducer);
 
   // @ts-ignore
   store.reducerManager = reducerManager;
@@ -22,6 +28,16 @@ const createReduxStore = (initialState?: StateSchema) => {
   return store;
 };
 
-const persistor = persistStore(createReduxStore());
+// TODO restore the redux persist configuration
+// const persistor = persistStore(createReduxStore());
 
-export { createReduxStore, persistor };
+export { createReduxStore };
+
+export type AppDispatch = (ReturnType<typeof createReduxStore>)['dispatch'];
+
+export const useAppDispatch = (): AppDispatch => useDispatch<AppDispatch>();
+export const useAppSelector: TypedUseSelectorHook<StateSchema> = useSelector;
+
+export type ExtraParamsThunkType<T> = {
+  rejectValue: T;
+};

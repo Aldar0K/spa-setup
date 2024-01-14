@@ -1,7 +1,10 @@
-import { FormEventHandler, memo, useCallback } from 'react';
+import {
+  FormEventHandler, memo, useCallback, useEffect,
+} from 'react';
 import { useTranslation } from 'react-i18next';
+import { useStore } from 'react-redux';
 
-import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
+import { ReduxStoreWithManager, useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
 import { classNames } from 'shared/lib';
 import {
   Button, ButtonThemes, Input, Text,
@@ -11,7 +14,7 @@ import { getIsLoading } from '../../model/selectors/getIsLoading';
 import { getPassword } from '../../model/selectors/getPassword';
 import { getUsername } from '../../model/selectors/getUsername';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
-import { loginByUsernameActions } from '../../model/slice';
+import { loginByUsernameActions, loginByUsernameReducer } from '../../model/slice';
 import cls from './LoginForm.module.scss';
 
 export type LoginFormProps = {
@@ -26,6 +29,18 @@ const LoginForm = memo((props: LoginFormProps) => {
   const password = useAppSelector(getPassword);
   const isLoading = useAppSelector(getIsLoading);
   const error = useAppSelector(getError);
+  const store = useStore() as ReduxStoreWithManager;
+
+  useEffect(() => {
+    store.reducerManager.add('loginByUsername', loginByUsernameReducer);
+    dispatch({ type: '@INIT loginByUsername reducer' });
+
+    return () => {
+      store.reducerManager.remove('loginByUsername');
+      dispatch({ type: '@DESTROY loginByUsername reducer' });
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleUsernameChange = useCallback((value: string) => {
     dispatch(loginByUsernameActions.setUsername(value));

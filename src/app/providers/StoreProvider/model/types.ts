@@ -1,12 +1,29 @@
-import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
-import { StateSchema } from './reducers';
-import { createReduxStore } from './store';
+import {
+  Action,
+  EnhancedStore, Reducer, ReducersMapObject,
+} from '@reduxjs/toolkit';
 
-export type AppDispatch = (ReturnType<typeof createReduxStore>)['dispatch'];
+import { CounterSchema } from 'entities/counter';
+import { UserSchema } from 'entities/user';
+import { LoginByUsernameSchema } from 'features/user/login-by-username';
 
-export const useAppDispatch = (): AppDispatch => useDispatch<AppDispatch>();
-export const useAppSelector: TypedUseSelectorHook<StateSchema> = useSelector;
+export type StateSchema = {
+  counter: CounterSchema;
+  user: UserSchema;
 
-export type ExtraParamsThunkType<T> = {
-  rejectValue: T;
+  // async reducers
+  loginByUsername?: LoginByUsernameSchema;
+};
+
+export type StateSchemaKey = keyof StateSchema;
+
+export type ReducerManager = {
+  getReducerMap: () => ReducersMapObject<StateSchema>;
+  reduce: (state: StateSchema, action: Action) => StateSchema;
+  add: (key: StateSchemaKey, reducer: Reducer) => void;
+  remove: (key: StateSchemaKey) => void;
+};
+
+export type ReduxStoreWithManager = EnhancedStore<StateSchema> & {
+  reducerManager: ReducerManager
 };

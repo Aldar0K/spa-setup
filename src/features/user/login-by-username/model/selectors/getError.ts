@@ -1,8 +1,3 @@
-import { createSelector } from '@reduxjs/toolkit';
+import { StateSchema } from 'app/providers/StoreProvider';
 
-import { getState } from './getState';
-
-export const getError = createSelector(
-  getState,
-  (state) => state.error,
-);
+export const getError = (state: StateSchema) => state?.loginByUsername?.error || '';
