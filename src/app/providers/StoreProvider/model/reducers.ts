@@ -2,12 +2,10 @@ import { Action, combineReducers } from '@reduxjs/toolkit';
 
 import { counterReducer } from 'entities/counter';
 import { userReducer } from 'entities/user';
-import { loginByUsernameReducer } from 'features/user/login-by-username';
 
 export const reducer = combineReducers({
   counter: counterReducer,
   user: userReducer,
-  loginByUsername: loginByUsernameReducer,
 });
 
 const rootReducer = (state: StateSchema, action: Action): StateSchema => {
@@ -17,6 +15,8 @@ const rootReducer = (state: StateSchema, action: Action): StateSchema => {
 };
 
 // Partial? is it ok?
-export type StateSchema = Partial<ReturnType<typeof reducer>>;
+export type StateSchema = ReturnType<typeof reducer>;
+
+export type StateSchemaKey = keyof StateSchema;
 
 export default rootReducer as typeof reducer;
