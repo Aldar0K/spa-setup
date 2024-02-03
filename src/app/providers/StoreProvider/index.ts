@@ -1,5 +1,6 @@
+export type { AppDispatch, ExtraParamsThunkType } from './model/store';
+
 export {
-  AppDispatch,
   createReduxStore,
   useAppDispatch,
   useAppSelector

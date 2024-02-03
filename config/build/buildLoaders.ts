@@ -21,15 +21,17 @@ export const buildLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
     ]
   };
 
-  const babelLoader: webpack.RuleSetRule = buildBabelLoader(options);
+  const commonBabelLoader: webpack.RuleSetRule = buildBabelLoader({
+    ...options,
+    isTsx: false
+  });
 
-  const typescriptLoader: webpack.RuleSetRule = {
-    test: /\.tsx?$/,
-    use: 'ts-loader',
-    exclude: /node_modules/
-  };
+  const tsxBabelLoader: webpack.RuleSetRule = buildBabelLoader({
+    ...options,
+    isTsx: true
+  });
 
   const cssLoader = buildCssLoader(isDev);
 
-  return [svgLoader, fileLoader, babelLoader, typescriptLoader, cssLoader];
+  return [svgLoader, fileLoader, commonBabelLoader, tsxBabelLoader, cssLoader];
 };

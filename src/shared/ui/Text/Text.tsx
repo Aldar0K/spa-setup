@@ -12,23 +12,17 @@ type TextProps = {
   className?: string;
 };
 
-export const Text: FC<TextProps> = (props) => {
-  const {
-    heading, text, theme = 'primary', className,
-  } = props;
+export const Text: FC<TextProps> = props => {
+  const { heading, text, theme = 'primary', className } = props;
 
   return (
     <div
       className={classNames(cls.container, {}, [cls[theme], className])}
-      data-testid="Text"
+      data-testid='Text'
     >
-      {heading && (
-        <h2 className={cls.heading}>{heading}</h2>
-      )}
+      {heading && <h2 className={cls.heading}>{heading}</h2>}
 
-      {text && (
-        <p className={cls.text}>{text}</p>
-      )}
+      {text && <p className={cls.text}>{text}</p>}
     </div>
   );
 };

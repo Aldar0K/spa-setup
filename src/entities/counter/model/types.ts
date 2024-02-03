@@ -1,3 +1,3 @@
 export type CounterSchema = {
-  value: number,
+  value: number;
 };
