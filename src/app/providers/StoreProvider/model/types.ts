@@ -1,6 +1,8 @@
 import {
   Action,
-  EnhancedStore, Reducer, ReducersMapObject,
+  EnhancedStore,
+  Reducer,
+  ReducersMapObject
 } from '@reduxjs/toolkit';
 
 import { CounterSchema } from 'entities/counter';
@@ -17,6 +19,12 @@ export type StateSchema = {
 
 export type StateSchemaKey = keyof StateSchema;
 
+export type ReducerList = {
+  [name in StateSchemaKey]?: Reducer;
+};
+
+export type ReducersListEntry = [StateSchemaKey, Reducer];
+
 export type ReducerManager = {
   getReducerMap: () => ReducersMapObject<StateSchema>;
   reduce: (state: StateSchema, action: Action) => StateSchema;
@@ -25,5 +33,5 @@ export type ReducerManager = {
 };
 
 export type ReduxStoreWithManager = EnhancedStore<StateSchema> & {
-  reducerManager: ReducerManager
+  reducerManager: ReducerManager;
 };
