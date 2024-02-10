@@ -1,13 +1,33 @@
-import { FC } from 'react';
+import axios from 'axios';
+import { FC, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import styles from './MainPage.module.scss';
 
+const getArticles = async () => {
+  try {
+    const response = await axios.get<any[]>('http://localhost:8000/articles', {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer'
+      }
+    });
+    console.log(response);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 const MainPage: FC = () => {
-  const { t } = useTranslation('main');
+  const { t } = useTranslation('');
+
+  useEffect(() => {
+    getArticles();
+  }, []);
 
   return (
-    <div className={styles.container} data-testid="MainPage">
+    <div className={styles.container} data-testid='MainPage'>
       <h1>{t('Main')}</h1>
     </div>
   );

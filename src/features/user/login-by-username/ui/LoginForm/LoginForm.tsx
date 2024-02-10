@@ -9,10 +9,10 @@ import {
 import { classNames } from 'shared/lib';
 import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader';
 import { Button, ButtonThemes, Input, Text } from 'shared/ui';
-import { getError } from '../../model/selectors/getError';
-import { getIsLoading } from '../../model/selectors/getIsLoading';
-import { getPassword } from '../../model/selectors/getPassword';
-import { getUsername } from '../../model/selectors/getUsername';
+import { getError } from '../../model/selectors/getError/getError';
+import { getIsLoading } from '../../model/selectors/getIsLoading/getIsLoading';
+import { getPassword } from '../../model/selectors/getPassword/getPassword';
+import { getUsername } from '../../model/selectors/getUsername/getUsername';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import {
   loginByUsernameActions,

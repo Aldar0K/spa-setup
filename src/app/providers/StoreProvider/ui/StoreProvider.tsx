@@ -7,7 +7,7 @@ import { StateSchema } from '../model/types';
 
 type StoreProviderProps = {
   children: ReactNode;
-  initialState?: Partial<StateSchema>;
+  initialState?: DeepPartial<StateSchema>;
   asyncReducers?: Partial<ReducersMapObject<StateSchema>>;
 };
 

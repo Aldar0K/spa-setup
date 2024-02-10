@@ -9,7 +9,7 @@ const defaultAsyncReducers: Partial<ReducersMapObject<StateSchema>> = {
 
 export const withStoreDecorator =
   (
-    state: Partial<StateSchema>,
+    state: DeepPartial<StateSchema>,
     asyncReducers?: Partial<ReducersMapObject<StateSchema>>
   ): Decorator =>
   Story =>
