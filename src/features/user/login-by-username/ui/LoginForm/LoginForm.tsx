@@ -8,7 +8,7 @@ import {
 } from 'app/providers/StoreProvider';
 import { classNames } from 'shared/lib';
 import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader';
-import { Button, ButtonThemes, Input, Text } from 'shared/ui';
+import { Button, Input, Text } from 'shared/ui';
 import { getError } from '../../model/selectors/getError/getError';
 import { getIsLoading } from '../../model/selectors/getIsLoading/getIsLoading';
 import { getPassword } from '../../model/selectors/getPassword/getPassword';
@@ -88,7 +88,7 @@ const LoginForm = memo((props: LoginFormProps) => {
 
         <Button
           type='submit'
-          theme={ButtonThemes.BACKGROUND}
+          theme='background'
           className={cls['button-submit']}
           loading={isLoading}
         >

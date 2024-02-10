@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from 'shared/lib';
-import { Button, ButtonThemes } from 'shared/ui';
+import { Button } from 'shared/ui';
 
 type LangSwitcherProps = {
   short?: boolean;
@@ -17,7 +17,7 @@ export const LangSwitcher: FC<LangSwitcherProps> = ({ short, className }) => {
 
   return (
     <Button
-      theme={ButtonThemes.CLEAR}
+      theme='clear'
       onClick={toggle}
       className={classNames('', {}, [className])}
     >

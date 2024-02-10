@@ -5,9 +5,7 @@ import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
 import { getUserAuthData, userActions } from 'entities/user';
 import { LoginModal } from 'features/user/login-by-username';
 import { classNames } from 'shared/lib';
-import {
-  AppLink, AppLinkThemes, Button, ButtonThemes,
-} from 'shared/ui';
+import { AppLink, AppLinkThemes, Button } from 'shared/ui';
 import cls from './Header.module.scss';
 
 type NavigationProps = {
@@ -31,15 +29,12 @@ export const Header: FC<NavigationProps> = ({ className }) => {
     return (
       <div className={classNames(cls.container, {}, [className])}>
         <div className={classNames(cls.links)}>
-          <AppLink theme={AppLinkThemes.SECONDARY} to="/">
+          <AppLink theme={AppLinkThemes.SECONDARY} to='/'>
             {t('Main')}
           </AppLink>
         </div>
 
-        <Button
-          theme={ButtonThemes.CLEAR}
-          onClick={handleLogout}
-        >
+        <Button theme='clear' onClick={handleLogout}>
           {t('Logout')}
         </Button>
       </div>
@@ -49,15 +44,12 @@ export const Header: FC<NavigationProps> = ({ className }) => {
   return (
     <div className={classNames(cls.container, {}, [className])}>
       <div className={classNames(cls.links)}>
-        <AppLink theme={AppLinkThemes.SECONDARY} to="/">
+        <AppLink theme={AppLinkThemes.SECONDARY} to='/'>
           {t('Main')}
         </AppLink>
       </div>
 
-      <Button
-        theme={ButtonThemes.CLEAR}
-        onClick={openAuthModal}
-      >
+      <Button theme='clear' onClick={openAuthModal}>
         {t('Login')}
       </Button>
 

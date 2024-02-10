@@ -5,19 +5,19 @@ import IconLight from 'shared/assets/icons/theme-light.svg';
 
 import { AppThemes, useTheme } from 'app/providers/ThemeProvider';
 import { classNames } from 'shared/lib';
-import { Button, ButtonThemes } from 'shared/ui';
+import { Button } from 'shared/ui';
 
 type ThemeSwitcherProps = {
   className?: string;
 };
 
-export const ThemeSwitcher: FC<ThemeSwitcherProps> = (props) => {
+export const ThemeSwitcher: FC<ThemeSwitcherProps> = props => {
   const { className } = props;
   const { theme, toggleTheme } = useTheme();
 
   return (
     <Button
-      theme={ButtonThemes.CLEAR}
+      theme='clear'
       className={classNames('', {}, [className])}
       onClick={toggleTheme}
     >

@@ -5,9 +5,7 @@ import IconAbout from 'shared/assets/icons/about-20-20.svg';
 import IconMain from 'shared/assets/icons/main-20-20.svg';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib';
-import {
-  AppLink, AppLinkThemes, Button, ButtonSizes, ButtonThemes,
-} from 'shared/ui';
+import { AppLink, AppLinkThemes, Button } from 'shared/ui';
 import { LangSwitcher } from 'widgets/LangSwitcher';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import cls from './Sidebar.module.scss';
@@ -19,26 +17,26 @@ type SidebarProps = {
 export const Sidebar: FC<SidebarProps> = ({ className }) => {
   const { t } = useTranslation();
   const [collapsed, setCollapsed] = useState(false);
-  const toggleCollapsed = () => setCollapsed((prev) => !prev);
+  const toggleCollapsed = () => setCollapsed(prev => !prev);
 
   return (
     <div
       className={classNames(
         cls.container,
         {
-          [cls.collapsed]: collapsed,
+          [cls.collapsed]: collapsed
         },
-        [className],
+        [className]
       )}
-      data-testid="Sidebar"
+      data-testid='Sidebar'
     >
       <Button
-        theme={ButtonThemes.BACKGROUND_INVERTED}
+        theme='background-inverted'
         square
-        size={ButtonSizes.L}
+        size='large'
         onClick={toggleCollapsed}
         className={cls.button}
-        data-testid="button-toggle"
+        data-testid='button-toggle'
       >
         {collapsed ? '>' : '<'}
       </Button>
@@ -50,9 +48,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
           className={cls.link}
         >
           <IconMain className={cls.link__icon} />
-          <span className={cls.link__text}>
-            {t('Main')}
-          </span>
+          <span className={cls.link__text}>{t('Main')}</span>
         </AppLink>
 
         <AppLink
@@ -61,9 +57,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
           className={cls.link}
         >
           <IconAbout className={cls.link__icon} />
-          <span className={cls.link__text}>
-            {t('About')}
-          </span>
+          <span className={cls.link__text}>{t('About')}</span>
         </AppLink>
       </div>
 
