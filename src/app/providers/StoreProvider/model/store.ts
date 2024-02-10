@@ -3,6 +3,7 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
 import { counterReducer } from 'entities/counter';
 import { userReducer } from 'entities/user';
+import { $api } from 'shared/api';
 import { createReducerManager } from './reducerManager';
 import { StateSchema } from './types';
 
@@ -18,10 +19,18 @@ const createReduxStore = (
 
   const reducerManager = createReducerManager(rootReducers);
 
-  const store = configureStore<StateSchema>({
+  const store = configureStore({
     reducer: reducerManager.reduce,
     devTools: __IS_DEV__,
-    preloadedState: initialState
+    preloadedState: initialState,
+    middleware: getDefaultMiddleware =>
+      getDefaultMiddleware({
+        thunk: {
+          extraArgument: {
+            api: $api
+          }
+        }
+      })
   });
 
   // @ts-ignore
