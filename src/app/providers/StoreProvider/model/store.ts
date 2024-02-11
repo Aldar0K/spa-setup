@@ -1,8 +1,10 @@
 import { ReducersMapObject, configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
+import { AxiosInstance } from 'axios';
 import { counterReducer } from 'entities/counter';
 import { userReducer } from 'entities/user';
+import { NavigateOptions, To } from 'react-router-dom';
 import { $api } from 'shared/api';
 import { createReducerManager } from './reducerManager';
 import { StateSchema } from './types';
@@ -51,4 +53,14 @@ export const useAppSelector: TypedUseSelectorHook<StateSchema> = useSelector;
 
 export type ExtraParamsThunkType<T> = {
   rejectValue: T;
+};
+
+export type ThunkExtraArg = {
+  api: AxiosInstance;
+  navigate?: (to: To, opttions?: NavigateOptions) => void;
+};
+
+export type ThunkConfig<T> = {
+  rejectValue: T;
+  extra: ThunkExtraArg;
 };

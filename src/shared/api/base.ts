@@ -7,8 +7,6 @@ import {
   createApi,
   fetchBaseQuery
 } from '@reduxjs/toolkit/query/react';
-import axios from 'axios';
-import { USER_LOCALSTORAGE_KEY } from 'shared/const';
 
 const baseQuery = fetchBaseQuery({
   baseUrl: __API_URL__,
@@ -28,11 +26,4 @@ const baseQueryWithReauth = async (
 export const api = createApi({
   baseQuery: baseQueryWithReauth,
   endpoints: build => ({})
-});
-
-export const $api = axios.create({
-  baseURL: __API_URL__,
-  headers: {
-    Authorization: localStorage.getItem(USER_LOCALSTORAGE_KEY)
-  }
 });

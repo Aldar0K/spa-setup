@@ -25,11 +25,12 @@ const reducers: ReducerList = {
 };
 
 export type LoginFormProps = {
+  onSuccess?: () => void;
   className?: string;
 };
 
 const LoginForm = memo((props: LoginFormProps) => {
-  const { className } = props;
+  const { onSuccess, className } = props;
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const username = useAppSelector(getUsername);
@@ -52,9 +53,12 @@ const LoginForm = memo((props: LoginFormProps) => {
   );
 
   const handleSubmit = useCallback<FormEventHandler<HTMLFormElement>>(
-    event => {
+    async event => {
       event.preventDefault();
-      dispatch(loginByUsername({ username, password }));
+      const result = await dispatch(loginByUsername({ username, password }));
+      if (result.meta.requestStatus === 'fulfilled') {
+        onSuccess();
+      }
     },
     [dispatch, username, password]
   );

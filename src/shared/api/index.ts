@@ -1,1 +1,2 @@
-export { $api, api as baseApi } from './base';
+export { $api } from './api';
+export { api as baseApi } from './base';

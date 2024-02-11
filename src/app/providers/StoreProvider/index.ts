@@ -1,4 +1,9 @@
-export type { AppDispatch, ExtraParamsThunkType } from './model/store';
+export type {
+  AppDispatch,
+  ExtraParamsThunkType,
+  ThunkConfig,
+  ThunkExtraArg
+} from './model/store';
 
 export {
   createReduxStore,
