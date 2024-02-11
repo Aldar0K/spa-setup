@@ -1,5 +1,6 @@
-import { ReducerList } from 'app/providers/StoreProvider';
-import { profileReducer } from 'entities/profile';
+import { ReducerList, useAppDispatch } from 'app/providers/StoreProvider';
+import { getProfileData, profileReducer } from 'entities/profile';
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader';
 
@@ -13,6 +14,11 @@ interface ProfilePageProps {
 
 const ProfilePage = ({ className }: ProfilePageProps) => {
   const { t } = useTranslation();
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(getProfileData());
+  }, [dispatch]);
 
   return (
     <DynamicModuleLoader reducers={reducers}>
