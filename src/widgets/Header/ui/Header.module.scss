@@ -14,3 +14,9 @@
   display: flex;
   gap: var(--gap-s);
 }
+
+.right {
+  display: flex;
+  gap: var(--gap-s);
+  align-items: center;
+}

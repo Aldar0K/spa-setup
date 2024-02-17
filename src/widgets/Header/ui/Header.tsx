@@ -2,6 +2,7 @@ import { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
+import { ProfileCard } from 'entities/profile';
 import { getUserAuthData, userActions } from 'entities/user';
 import { LoginModal } from 'features/user/login-by-username';
 import { classNames } from 'shared/lib';
@@ -34,9 +35,12 @@ export const Header: FC<NavigationProps> = ({ className }) => {
           </AppLink>
         </div>
 
-        <Button theme='clear' onClick={handleLogout}>
-          {t('Logout')}
-        </Button>
+        <div className={cls.right}>
+          <ProfileCard />
+          <Button theme='clear' onClick={handleLogout}>
+            {t('Logout')}
+          </Button>
+        </div>
       </div>
     );
   }

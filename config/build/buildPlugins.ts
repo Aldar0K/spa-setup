@@ -10,7 +10,8 @@ import { BuildOptions } from './types';
 
 export const buildPlugins = ({
   paths,
-  isDev
+  isDev,
+  apiUrl
 }: BuildOptions): webpack.WebpackPluginInstance[] => {
   const plugins = [
     new HtmlWebpackPlugin({
@@ -23,7 +24,7 @@ export const buildPlugins = ({
     }),
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
-      __API_URL__: JSON.stringify('http://localhost:8000')
+      __API_URL__: JSON.stringify(apiUrl)
     }),
     new CopyWebpackPlugin({
       patterns: [

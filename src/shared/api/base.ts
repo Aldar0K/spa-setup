@@ -8,8 +8,10 @@ import {
   fetchBaseQuery
 } from '@reduxjs/toolkit/query/react';
 
+export const baseUrl = __API_URL__;
+
 const baseQuery = fetchBaseQuery({
-  baseUrl: __API_URL__,
+  baseUrl,
   // credentials: 'include',
   prepareHeaders: (headers, { getState }) => headers
 });
