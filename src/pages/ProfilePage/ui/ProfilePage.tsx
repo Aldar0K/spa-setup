@@ -1,5 +1,5 @@
 import { ReducerList, useAppDispatch } from 'app/providers/StoreProvider';
-import { getProfileData, profileReducer } from 'entities/profile';
+import { ProfileCard, getProfileData, profileReducer } from 'entities/profile';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader';
@@ -23,7 +23,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   return (
     <DynamicModuleLoader reducers={reducers}>
       <div className={className} data-testid='ProfilePage'>
-        <h1>{t('Profile')}</h1>
+        <ProfileCard />
       </div>
     </DynamicModuleLoader>
   );

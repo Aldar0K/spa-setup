@@ -1,1 +1,20 @@
-.container {}
+.container {
+  padding: 18px;
+
+  border: 2px solid var(--color-bg-inverted);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 30px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

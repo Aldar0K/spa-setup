@@ -1,13 +1,14 @@
 import { Country, Currency } from 'shared/const/common';
 
 export type Profile = {
-  first: string;
+  id: string;
+  username: string;
+  firstname: string;
   lastname: string;
   age: 22;
   currency: Currency;
   country: Country;
   city: string;
-  username: string;
   avatar: string;
 };
 

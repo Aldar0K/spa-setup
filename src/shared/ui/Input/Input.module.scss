@@ -5,6 +5,8 @@
 }
 
 .placeholder {
+  flex-shrink: 0;
+
   color: var(--color-primary-inverted);
   font-size: var(--font-size-m);
   line-height: var(--font-line-m);
