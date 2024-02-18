@@ -6,9 +6,9 @@ import { createReduxStore } from '../model/store';
 import { StateSchema } from '../model/types';
 
 type StoreProviderProps = {
-  children: ReactNode;
+  children?: ReactNode;
   initialState?: DeepPartial<StateSchema>;
-  asyncReducers?: Partial<ReducersMapObject<StateSchema>>;
+  asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>;
 };
 
 export const StoreProvider: FC<StoreProviderProps> = props => {

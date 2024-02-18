@@ -20,14 +20,17 @@ export const RoutePath: Record<AppRoutes, string> = {
 };
 
 export const routeConfig: Record<AppRoutes, RouteProps> = {
-  [AppRoutes.MAIN]: { path: RoutePath[AppRoutes.MAIN], Component: MainPage },
-  [AppRoutes.ABOUT]: { path: RoutePath[AppRoutes.ABOUT], Component: AboutPage },
+  [AppRoutes.MAIN]: { path: RoutePath[AppRoutes.MAIN], element: <MainPage /> },
+  [AppRoutes.ABOUT]: {
+    path: RoutePath[AppRoutes.ABOUT],
+    element: <AboutPage />
+  },
   [AppRoutes.PROFILE]: {
     path: RoutePath[AppRoutes.PROFILE],
-    Component: ProfilePage
+    element: <ProfilePage />
   },
   [AppRoutes.NOT_FOUND]: {
     path: RoutePath[AppRoutes.NOT_FOUND],
-    Component: NotFoundPage
+    element: <NotFoundPage />
   }
 };

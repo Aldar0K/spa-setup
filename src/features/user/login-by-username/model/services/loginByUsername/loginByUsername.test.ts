@@ -24,7 +24,7 @@ describe('loginByUsername', () => {
       username: 'username',
       password: '123'
     });
-    const result = await action(dispatch, getState, undefined);
+    const result = await action(dispatch, getState, undefined as any);
 
     expect(dispatch).toHaveBeenCalledWith(userActions.setAuthData(user));
     expect(dispatch).toHaveBeenCalledTimes(3);
@@ -39,7 +39,7 @@ describe('loginByUsername', () => {
       username: 'username',
       password: '123'
     });
-    const result = await action(dispatch, getState, undefined);
+    const result = await action(dispatch, getState, undefined as any);
 
     expect(dispatch).toHaveBeenCalledTimes(2);
     expect(mockedAxios.post).toHaveBeenCalled();

@@ -2,11 +2,12 @@ import axios from 'axios';
 import { FC, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { baseUrl } from 'shared/api';
 import styles from './MainPage.module.scss';
 
 const getArticles = async () => {
   try {
-    const response = await axios.get<any[]>('http://localhost:8000/articles', {
+    const response = await axios.get<any[]>(`${baseUrl}/articles`, {
       headers: {
         'Content-Type': 'application/json',
         Authorization: 'Bearer'

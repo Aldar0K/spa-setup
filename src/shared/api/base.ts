@@ -12,7 +12,6 @@ export const baseUrl = __API_URL__;
 
 const baseQuery = fetchBaseQuery({
   baseUrl,
-  // credentials: 'include',
   prepareHeaders: (headers, { getState }) => headers
 });
 
@@ -26,6 +25,6 @@ const baseQueryWithReauth = async (
 };
 
 export const api = createApi({
-  baseQuery: baseQueryWithReauth,
+  baseQuery,
   endpoints: build => ({})
 });

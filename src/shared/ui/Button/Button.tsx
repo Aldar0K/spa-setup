@@ -26,11 +26,11 @@ export const Button: FC<ButtonProps> = memo(props => {
   const {
     type = 'button',
     children,
-    theme,
+    theme = 'outline',
     square = false,
     size = 'medium',
-    disabled,
-    loading,
+    disabled = false,
+    loading = false,
     className,
     ...otherProps
   } = props;
