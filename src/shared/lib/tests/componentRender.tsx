@@ -5,17 +5,18 @@ import { MemoryRouter } from 'react-router-dom';
 import i18nForTests from 'shared/config/i18n/i18nForTests';
 
 export type ComponentRenderOptions = {
-  route?: string
+  route?: string;
 };
 
-export const componentRender = (component: ReactNode, options: ComponentRenderOptions = {}) => {
+export const componentRender = (
+  component: ReactNode,
+  options: ComponentRenderOptions = {}
+) => {
   const { route = '/' } = options;
 
   return render(
     <MemoryRouter initialEntries={[route]}>
-      <I18nextProvider i18n={i18nForTests}>
-        {component}
-      </I18nextProvider>
-    </MemoryRouter>,
+      <I18nextProvider i18n={i18nForTests}>{component}</I18nextProvider>
+    </MemoryRouter>
   );
 };

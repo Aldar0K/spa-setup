@@ -1,6 +1,6 @@
 import { Dispatch } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
-import axios from 'axios';
+import axios, { AxiosStatic } from 'axios';
 import { User, userActions } from 'entities/user';
 import { loginByUsername } from './loginByUsername';
 
@@ -11,6 +11,9 @@ const mockedAxios = jest.mocked(axios);
 describe('loginByUsername', () => {
   let dispatch: Dispatch;
   let getState: () => StateSchema;
+
+  let api: jest.MockedFunctionDeep<AxiosStatic> = mockedAxios;
+  let navigate: jest.MockedFn<any> = jest.fn();
 
   beforeEach(() => {
     dispatch = jest.fn();
@@ -24,7 +27,7 @@ describe('loginByUsername', () => {
       username: 'username',
       password: '123'
     });
-    const result = await action(dispatch, getState, undefined as any);
+    const result = await action(dispatch, getState, { api, navigate });
 
     expect(dispatch).toHaveBeenCalledWith(userActions.setAuthData(user));
     expect(dispatch).toHaveBeenCalledTimes(3);
@@ -39,7 +42,7 @@ describe('loginByUsername', () => {
       username: 'username',
       password: '123'
     });
-    const result = await action(dispatch, getState, undefined as any);
+    const result = await action(dispatch, getState, { api, navigate });
 
     expect(dispatch).toHaveBeenCalledTimes(2);
     expect(mockedAxios.post).toHaveBeenCalled();
