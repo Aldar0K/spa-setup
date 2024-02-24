@@ -17,26 +17,26 @@ type SidebarProps = {
 export const Sidebar: FC<SidebarProps> = ({ className }) => {
   const { t } = useTranslation();
   const [collapsed, setCollapsed] = useState(false);
-  const toggleCollapsed = () => setCollapsed(prev => !prev);
+  const toggleCollapsed = () => setCollapsed((prev) => !prev);
 
   return (
     <div
       className={classNames(
         cls.container,
         {
-          [cls.collapsed]: collapsed
+          [cls.collapsed]: collapsed,
         },
-        [className]
+        [className],
       )}
-      data-testid='Sidebar'
+      data-testid="Sidebar"
     >
       <Button
-        theme='background-inverted'
+        theme="background-inverted"
         square
-        size='large'
+        size="large"
         onClick={toggleCollapsed}
         className={cls.button}
-        data-testid='button-toggle'
+        data-testid="button-toggle"
       >
         {collapsed ? '>' : '<'}
       </Button>

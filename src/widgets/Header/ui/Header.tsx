@@ -29,13 +29,13 @@ export const Header: FC<NavigationProps> = ({ className }) => {
     return (
       <div className={classNames(cls.container, {}, [className])}>
         <div className={classNames(cls.links)}>
-          <AppLink theme={AppLinkThemes.SECONDARY} to='/'>
+          <AppLink theme={AppLinkThemes.SECONDARY} to="/">
             {t('Main')}
           </AppLink>
         </div>
 
         <div className={cls.right}>
-          <Button theme='clear' onClick={handleLogout}>
+          <Button theme="clear" onClick={handleLogout}>
             {t('Logout')}
           </Button>
         </div>
@@ -46,12 +46,12 @@ export const Header: FC<NavigationProps> = ({ className }) => {
   return (
     <div className={classNames(cls.container, {}, [className])}>
       <div className={classNames(cls.links)}>
-        <AppLink theme={AppLinkThemes.SECONDARY} to='/'>
+        <AppLink theme={AppLinkThemes.SECONDARY} to="/">
           {t('Main')}
         </AppLink>
       </div>
 
-      <Button theme='clear' onClick={openAuthModal}>
+      <Button theme="clear" onClick={openAuthModal}>
         {t('Login')}
       </Button>
 

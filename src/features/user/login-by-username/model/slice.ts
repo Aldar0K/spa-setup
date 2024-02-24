@@ -7,7 +7,7 @@ const initialState: LoginByUsernameSchema = {
   username: '',
   password: '',
   isLoading: false,
-  error: ''
+  error: '',
 };
 
 export const loginByUsernameSlice = createSlice({
@@ -19,25 +19,25 @@ export const loginByUsernameSlice = createSlice({
     },
     setPassword: (state, action: PayloadAction<string>) => {
       state.password = action.payload;
-    }
+    },
   },
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder
-      .addCase(loginByUsername.pending, state => {
+      .addCase(loginByUsername.pending, (state) => {
         state.error = '';
         state.isLoading = true;
       })
-      .addCase(loginByUsername.fulfilled, state => {
+      .addCase(loginByUsername.fulfilled, (state) => {
         state.isLoading = false;
       })
       .addCase(loginByUsername.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       });
-  }
+  },
 });
 
 export const {
   actions: loginByUsernameActions,
-  reducer: loginByUsernameReducer
+  reducer: loginByUsernameReducer,
 } = loginByUsernameSlice;

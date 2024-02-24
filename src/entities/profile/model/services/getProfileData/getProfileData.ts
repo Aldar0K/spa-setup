@@ -5,9 +5,9 @@ import i18n from 'shared/config/i18n/i18n';
 import { Profile } from '../../types';
 
 export const getProfileData = createAsyncThunk<
-  Profile,
-  void,
-  ThunkConfig<string>
+Profile,
+void,
+ThunkConfig<string>
 >('profile/getProfileData', async (_, { extra, rejectWithValue }) => {
   try {
     throw new Error();

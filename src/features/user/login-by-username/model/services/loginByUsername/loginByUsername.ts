@@ -10,9 +10,9 @@ type LoginByUsernameProps = {
 };
 
 export const loginByUsername = createAsyncThunk<
-  User,
-  LoginByUsernameProps,
-  ThunkConfig<string>
+User,
+LoginByUsernameProps,
+ThunkConfig<string>
 >(
   'login/loginByUsername',
   async (authData, { extra, dispatch, rejectWithValue }) => {
@@ -26,12 +26,12 @@ export const loginByUsername = createAsyncThunk<
       dispatch(userActions.setAuthData(response.data));
       localStorage.setItem(
         USER_LOCALSTORAGE_KEY,
-        JSON.stringify(response.data)
+        JSON.stringify(response.data),
       );
 
       return response.data;
     } catch (error) {
       return rejectWithValue('Your login or password is wrong!');
     }
-  }
+  },
 );

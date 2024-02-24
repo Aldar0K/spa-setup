@@ -2,7 +2,7 @@ import {
   Action,
   EnhancedStore,
   Reducer,
-  ReducersMapObject
+  ReducersMapObject,
 } from '@reduxjs/toolkit';
 
 import { CounterSchema } from 'entities/counter';

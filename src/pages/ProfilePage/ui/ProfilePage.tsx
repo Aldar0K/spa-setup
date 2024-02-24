@@ -1,7 +1,7 @@
 import {
   ReducerList,
   useAppDispatch,
-  useAppSelector
+  useAppSelector,
 } from 'app/providers/StoreProvider';
 import {
   ProfileCard,
@@ -9,14 +9,13 @@ import {
   getProfileData,
   getProfileError,
   getProfileIsLoading,
-  profileReducer
+  profileReducer,
 } from 'entities/profile';
 import { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
 import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader';
 
 const reducers: ReducerList = {
-  profile: profileReducer
+  profile: profileReducer,
 };
 
 interface ProfilePageProps {
@@ -24,7 +23,6 @@ interface ProfilePageProps {
 }
 
 const ProfilePage = ({ className }: ProfilePageProps) => {
-  const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const profile = useAppSelector(getProfile);
   const isLoadig = useAppSelector(getProfileIsLoading);
@@ -36,7 +34,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <div className={className} data-testid='ProfilePage'>
+      <div className={className} data-testid="ProfilePage">
         <ProfileCard profile={profile} isLoadig={isLoadig} error={error} />
       </div>
     </DynamicModuleLoader>

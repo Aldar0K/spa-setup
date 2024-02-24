@@ -22,7 +22,7 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   className?: string;
 };
 
-export const Button: FC<ButtonProps> = memo(props => {
+export const Button: FC<ButtonProps> = memo((props) => {
   const {
     type = 'button',
     children,
@@ -43,12 +43,12 @@ export const Button: FC<ButtonProps> = memo(props => {
         cls.container,
         {
           [cls.square]: square,
-          [cls.disabled]: disabled
+          [cls.disabled]: disabled,
         },
-        [cls[theme], cls[size], className]
+        [cls[theme], cls[size], className],
       )}
       disabled={disabled || loading}
-      data-testid='Button'
+      data-testid="Button"
       {...otherProps}
     >
       {loading ? t('Loading') : children}

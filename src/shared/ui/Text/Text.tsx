@@ -14,15 +14,17 @@ type TextProps = {
   className?: string;
 };
 
-export const Text: FC<TextProps> = props => {
-  const { heading, text, theme = 'primary', align = 'left', className } = props;
+export const Text: FC<TextProps> = (props) => {
+  const {
+    heading, text, theme = 'primary', align = 'left', className,
+  } = props;
 
   const additionalClasses = [cls[theme], cls[align], className];
 
   return (
     <div
       className={classNames(cls.container, {}, additionalClasses)}
-      data-testid='Text'
+      data-testid="Text"
     >
       {heading && <h2 className={cls.heading}>{heading}</h2>}
 

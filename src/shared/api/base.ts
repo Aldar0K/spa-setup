@@ -1,30 +1,22 @@
-import {
-  FetchArgs,
-  FetchBaseQueryMeta
-} from '@reduxjs/toolkit/dist/query/fetchBaseQuery';
-import {
-  BaseQueryApi,
-  createApi,
-  fetchBaseQuery
-} from '@reduxjs/toolkit/query/react';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const baseUrl = __API_URL__;
 
 const baseQuery = fetchBaseQuery({
   baseUrl,
-  prepareHeaders: (headers, { getState }) => headers
+  prepareHeaders: (headers, {}) => headers
 });
 
-const baseQueryWithReauth = async (
-  args: FetchArgs,
-  api: BaseQueryApi,
-  extraOptions: FetchBaseQueryMeta
-) => {
-  const result = await baseQuery(args, api, extraOptions);
-  return result;
-};
+// const baseQueryWithReauth = async (
+//   args: FetchArgs,
+//   api: BaseQueryApi,
+//   extraOptions: FetchBaseQueryMeta,
+// ) => {
+//   const result = await baseQuery(args, api, extraOptions);
+//   return result;
+// };
 
 export const api = createApi({
   baseQuery,
-  endpoints: build => ({})
+  endpoints: () => ({})
 });

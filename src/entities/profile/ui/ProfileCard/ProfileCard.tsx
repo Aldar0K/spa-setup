@@ -2,7 +2,9 @@ import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from 'shared/lib';
-import { Button, Input, Loader, Text } from 'shared/ui';
+import {
+  Button, Input, Loader, Text,
+} from 'shared/ui';
 import { Profile } from '../../model/types';
 import cls from './ProfileCard.module.scss';
 
@@ -13,46 +15,50 @@ type ProfileCardProps = {
   className?: string;
 };
 
-export const ProfileCard: FC<ProfileCardProps> = props => {
-  const { profile, isLoadig, error, className } = props;
+export const ProfileCard: FC<ProfileCardProps> = (props) => {
+  const {
+    profile, isLoadig, error, className,
+  } = props;
   const { t: tProfile } = useTranslation('profile');
   const { t } = useTranslation('');
 
-  if (isLoadig)
+  if (isLoadig) {
     return (
       <div
         className={classNames(cls.container, {}, [cls.loading, className])}
-        data-testid='ProfileCard'
+        data-testid="ProfileCard"
       >
         <Loader />
       </div>
     );
+  }
 
-  if (error)
+  if (error) {
     return (
       <div
         className={classNames(cls.container, {}, [cls.error, className])}
-        data-testid='ProfileCard'
+        data-testid="ProfileCard"
       >
         <Text
           heading={tProfile('Profile error')}
           text={error || t('Something went wrong')}
-          theme='error'
-          align='center'
+          theme="error"
+          align="center"
         />
       </div>
     );
+  }
 
   if (!profile) return null;
 
   return (
     <div
       className={classNames(cls.container, {}, [className])}
-      data-testid='ProfileCard'
+      data-testid="ProfileCard"
     >
       <header className={cls.header}>
         <Text heading={tProfile('Profile')} />
-        <Button theme='outline' className={cls['button-edit']}>
+        <Button theme="outline" className={cls['button-edit']}>
           {t('Edit')}
         </Button>
       </header>

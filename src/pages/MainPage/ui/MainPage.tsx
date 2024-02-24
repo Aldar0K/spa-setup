@@ -10,8 +10,8 @@ const getArticles = async () => {
     const response = await axios.get<any[]>(`${baseUrl}/articles`, {
       headers: {
         'Content-Type': 'application/json',
-        Authorization: 'Bearer'
-      }
+        Authorization: 'Bearer',
+      },
     });
     console.log(response);
     return response;
@@ -28,7 +28,7 @@ const MainPage: FC = () => {
   }, []);
 
   return (
-    <div className={styles.container} data-testid='MainPage'>
+    <div className={styles.container} data-testid="MainPage">
       <h1>{t('Main')}</h1>
     </div>
   );

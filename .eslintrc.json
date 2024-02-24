@@ -11,9 +11,7 @@
     "plugin:i18next/recommended",
     "plugin:storybook/recommended"
   ],
-  "plugins": [
-    "i18next"
-  ],
+  "plugins": ["i18next"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
@@ -21,15 +19,11 @@
     },
     "ecmaVersion": "latest",
     "sourceType": "module",
-    "project": [
-      "./tsconfig.json"
-    ]
+    "project": ["./tsconfig.json"]
   },
   "overrides": [
     {
-      "files": [
-        "**/src/**/*.{test,spec}.{js,jsx,ts,tsx}"
-      ],
+      "files": ["**/src/**/*.{test,spec}.{js,jsx,ts,tsx}"],
       "rules": {
         "i18next/no-literal-string": "off"
       }
@@ -51,18 +45,12 @@
         "argsIgnorePattern": "^_"
       }
     ],
-    "max-len": [
-      "warn",
-      120
-    ],
+    "max-len": ["warn", 120],
     "i18next/no-literal-string": [
       "error",
       {
         "markupOnly": true,
-        "ignoreAttribute": [
-          "data-testid",
-          "to"
-        ]
+        "ignoreAttribute": ["data-testid", "to"]
       }
     ],
     "import/no-extraneous-dependencies": [
@@ -71,6 +59,7 @@
         "devDependencies": true
       }
     ],
-    "no-param-reassign": "off"
+    "no-param-reassign": "off",
+    "react/prop-types": "off"
   }
 }

@@ -2,7 +2,7 @@ import {
   Action,
   Reducer,
   ReducersMapObject,
-  configureStore
+  configureStore,
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
@@ -17,31 +17,30 @@ import { StateSchema } from './types';
 const createReduxStore = (
   initialState?: StateSchema,
   asyncReducers?: ReducersMapObject<StateSchema>,
-  navigate?: (to: To, options?: NavigateOptions) => void
+  navigate?: (to: To, options?: NavigateOptions) => void,
 ) => {
   const rootReducers: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
     counter: counterReducer,
-    user: userReducer
+    user: userReducer,
   };
 
   const reducerManager = createReducerManager(rootReducers);
 
   const extraArgument: ThunkExtraArg = {
     api: $api,
-    navigate
+    navigate,
   };
 
   const store = configureStore({
     reducer: reducerManager.reduce as Reducer<StateSchema, Action, StateSchema>,
     devTools: __IS_DEV__,
     preloadedState: initialState,
-    middleware: getDefaultMiddleware =>
-      getDefaultMiddleware({
-        thunk: {
-          extraArgument
-        }
-      })
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+      thunk: {
+        extraArgument,
+      },
+    }),
   });
 
   // @ts-ignore

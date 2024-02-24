@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import {
   AppThemes,
   LOCAL_STORAGE_THEME_KEY,
-  ThemeContext
+  ThemeContext,
 } from './ThemeContext';
 
 type UseThemeResult = {
@@ -15,8 +15,7 @@ export const useTheme = (): UseThemeResult => {
   const { theme, setTheme } = useContext(ThemeContext);
 
   const toggleTheme = () => {
-    const newTheme =
-      theme === AppThemes.LIGHT ? AppThemes.DARK : AppThemes.LIGHT;
+    const newTheme = theme === AppThemes.LIGHT ? AppThemes.DARK : AppThemes.LIGHT;
 
     setTheme?.(newTheme);
 
@@ -28,6 +27,6 @@ export const useTheme = (): UseThemeResult => {
 
   return {
     theme: theme || AppThemes.LIGHT,
-    toggleTheme
+    toggleTheme,
   };
 };

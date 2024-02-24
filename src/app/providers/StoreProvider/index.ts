@@ -2,13 +2,13 @@ export type {
   AppDispatch,
   ExtraParamsThunkType,
   ThunkConfig,
-  ThunkExtraArg
+  ThunkExtraArg,
 } from './model/store';
 
 export {
   createReduxStore,
   useAppDispatch,
-  useAppSelector
+  useAppSelector,
 } from './model/store';
 
 export type {
@@ -17,7 +17,7 @@ export type {
   ReducersListEntry,
   ReduxStoreWithManager,
   StateSchema,
-  StateSchemaKey
+  StateSchemaKey,
 } from './model/types';
 
 export { StoreProvider } from './ui/StoreProvider';

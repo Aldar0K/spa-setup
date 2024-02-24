@@ -5,8 +5,8 @@ describe('getIsLoading', () => {
   test('should return true', () => {
     const state: DeepPartial<StateSchema> = {
       loginByUsername: {
-        isLoading: true
-      }
+        isLoading: true,
+      },
     };
     expect(getIsLoading(state as StateSchema)).toEqual(true);
   });

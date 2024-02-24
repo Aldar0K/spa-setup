@@ -12,8 +12,8 @@ describe('loginByUsername', () => {
   let dispatch: Dispatch;
   let getState: () => StateSchema;
 
-  let api: jest.MockedFunctionDeep<AxiosStatic> = mockedAxios;
-  let navigate: jest.MockedFn<any> = jest.fn();
+  const api: jest.MockedFunctionDeep<AxiosStatic> = mockedAxios;
+  const navigate: jest.MockedFn<any> = jest.fn();
 
   beforeEach(() => {
     dispatch = jest.fn();
@@ -25,7 +25,7 @@ describe('loginByUsername', () => {
     mockedAxios.post.mockReturnValue(Promise.resolve({ data: user }));
     const action = loginByUsername({
       username: 'username',
-      password: '123'
+      password: '123',
     });
     const result = await action(dispatch, getState, { api, navigate });
 
@@ -40,7 +40,7 @@ describe('loginByUsername', () => {
     mockedAxios.post.mockReturnValue(Promise.resolve({ status: 403 }));
     const action = loginByUsername({
       username: 'username',
-      password: '123'
+      password: '123',
     });
     const result = await action(dispatch, getState, { api, navigate });
 

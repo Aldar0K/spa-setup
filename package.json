@@ -18,7 +18,7 @@
     "storybook:build": "storybook build -c ./config/storybook",
     "dev": "webpack serve --env port=3000 apiUrl=https://json-server-ten-phi.vercel.app",
     "build:prod": "webpack --env mode=production apiUrl=https://json-server-ten-phi.vercel.app",
-    "build:dev": "webpack --env mode=development apiUrl=localhost:8000"
+    "build:dev": "webpack --env mode=development apiUrl=http://localhost:8000"
   },
   "keywords": [],
   "author": "",
