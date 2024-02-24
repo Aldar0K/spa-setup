@@ -1,44 +1,44 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { useAppSelector } from 'app/providers/StoreProvider';
 import { classNames } from 'shared/lib';
-import { Button, Input, Text } from 'shared/ui';
-import { getProfile } from '../../model/selectors/getProfile/getProfile';
-import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
-import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
+import { Button, Input, Loader, Text } from 'shared/ui';
+import { Profile } from '../../model/types';
 import cls from './ProfileCard.module.scss';
 
 type ProfileCardProps = {
+  profile?: Profile;
+  isLoadig?: boolean;
+  error?: string;
   className?: string;
 };
 
 export const ProfileCard: FC<ProfileCardProps> = props => {
-  const { className } = props;
+  const { profile, isLoadig, error, className } = props;
   const { t: tProfile } = useTranslation('profile');
   const { t } = useTranslation('');
-  const profile = useAppSelector(getProfile);
-  const isLoadig = useAppSelector(getProfileIsLoading);
-  const error = useAppSelector(getProfileError);
 
   if (isLoadig)
     return (
       <div
-        className={classNames(cls.container, {}, [className])}
+        className={classNames(cls.container, {}, [cls.loading, className])}
         data-testid='ProfileCard'
       >
-        <Text heading={t('Loading')} />
+        <Loader />
       </div>
     );
 
   if (error)
     return (
       <div
-        className={classNames(cls.container, {}, [className])}
+        className={classNames(cls.container, {}, [cls.error, className])}
         data-testid='ProfileCard'
       >
         <Text
-          heading={`${t('Error')}: ${error || t('Something went wrong')}`}
+          heading={tProfile('Profile error')}
+          text={error || t('Something went wrong')}
+          theme='error'
+          align='center'
         />
       </div>
     );

@@ -4,6 +4,15 @@
   border: 2px solid var(--color-bg-inverted);
 }
 
+.loading,
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 300px;
+}
+
 .header {
   display: flex;
   align-items: center;
