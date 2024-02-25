@@ -1,4 +1,5 @@
-import { Country, Currency } from 'shared/const/common';
+import { Country } from 'entities/country';
+import { Currency } from 'entities/currency';
 
 export type Profile = {
   id: string;
@@ -14,7 +15,7 @@ export type Profile = {
 
 export type ProfileSchema = {
   data?: Profile;
-  form?: Profile;
+  form?: Partial<Profile>;
   isLoading: boolean;
   error?: string;
   readonly: boolean;
