@@ -20,5 +20,7 @@
   "WrongUsernameOrPassword": "Your login or password is wrong!",
   "Logout": "Logout",
   "Error": "Error",
-  "Edit": "Edit"
+  "Edit": "Edit",
+  "Save": "Save",
+  "Cancel": "Cancel"
 }

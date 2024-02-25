@@ -1,7 +1,7 @@
 import {
   ReducerList,
   useAppDispatch,
-  useAppSelector,
+  useAppSelector
 } from 'app/providers/StoreProvider';
 import {
   ProfileCard,
@@ -9,13 +9,14 @@ import {
   getProfileData,
   getProfileError,
   getProfileIsLoading,
-  profileReducer,
+  profileReducer
 } from 'entities/profile';
 import { useEffect } from 'react';
 import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader';
+import { Header } from './Header';
 
 const reducers: ReducerList = {
-  profile: profileReducer,
+  profile: profileReducer
 };
 
 interface ProfilePageProps {
@@ -34,7 +35,8 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <div className={className} data-testid="ProfilePage">
+      <div className={className} data-testid='ProfilePage'>
+        <Header />
         <ProfileCard profile={profile} isLoadig={isLoadig} error={error} />
       </div>
     </DynamicModuleLoader>
