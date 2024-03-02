@@ -1,6 +1,10 @@
 {
   "Profile": "Profile",
-  "Lastname": "Your last name",
-  "Firstname": "Your name",
+  "Name": "Name",
+  "Last name": "Last name",
+  "Username": "Username",
+  "Age": "Age",
+  "City": "City",
+  "Avatar Url": "Avatar Url",
   "Profile error": "Error while loading profile"
 }

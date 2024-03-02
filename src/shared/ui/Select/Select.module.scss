@@ -1,19 +1,31 @@
 .container {
   display: flex;
+  gap: 12px;
+  align-items: center;
 }
 
 .label {
-  margin-right: 5px;
+  color: var(--color-primary-inverted);
+  font-size: var(--font-size-m);
+  line-height: var(--font-line-m);
 }
 
 .select {
-  padding: 2px 10px 2px 2px;
+  padding: 8px;
 
-  color: var(--primary-color);
+  color: var(--color-primary);
+  font-size: var(--font-size-s);
+  line-height: var(--font-line-s);
 
-  background: none;
-  border: 1px solid var(--primary-color);
+  background-color: var(--color-bg);
+  border: 1.5px solid var(--color-secondary);
   outline: none;
+
+  &:focus,
+  &:focus-visible,
+  &:focus-within {
+    border: 1.5px solid var(--color-primary);
+  }
 }
 
 .option {
