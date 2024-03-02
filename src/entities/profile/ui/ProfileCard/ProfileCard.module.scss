@@ -13,17 +13,13 @@
   min-height: 300px;
 }
 
-.header {
-  display: flex;
-  align-items: center;
-
-  justify-content: space-between;
-
-  margin-bottom: 30px;
-}
-
 .form {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.avatar-wrapper {
+  display: flex;
+  justify-content: center;
 }

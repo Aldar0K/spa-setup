@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Country, CountrySelect } from 'entities/country';
 import { Currency, CurrencySelect } from 'entities/currency';
 import { classNames } from 'shared/lib';
-import { Input, Loader, Text } from 'shared/ui';
+import { Avatar, Input, Loader, Text } from 'shared/ui';
 import { Profile } from '../../model/types';
 import cls from './ProfileCard.module.scss';
 
@@ -85,8 +85,8 @@ export const ProfileCard: FC<ProfileCardProps> = props => {
     >
       <form className={cls.form}>
         {profile?.avatar && (
-          <div className={cls.avatarWrapper}>
-            {/* <Avatar src={profile?.avatar} /> */}
+          <div className={cls['avatar-wrapper']}>
+            <Avatar src={profile.avatar} />
           </div>
         )}
 
@@ -105,6 +105,13 @@ export const ProfileCard: FC<ProfileCardProps> = props => {
           className={cls.input}
         />
         <Input
+          value={profile?.username}
+          placeholder={tProfile('Username')}
+          onChange={onChangeUsername}
+          readonly={readonly}
+          className={cls.input}
+        />
+        <Input
           value={profile?.age}
           placeholder={tProfile('Age')}
           onChange={onChangeAge}
@@ -115,13 +122,6 @@ export const ProfileCard: FC<ProfileCardProps> = props => {
           value={profile?.city}
           placeholder={tProfile('City')}
           onChange={onChangeCity}
-          readonly={readonly}
-          className={cls.input}
-        />
-        <Input
-          value={profile?.username}
-          placeholder={tProfile('Username')}
-          onChange={onChangeUsername}
           readonly={readonly}
           className={cls.input}
         />
