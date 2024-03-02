@@ -93,52 +93,56 @@ export const ProfileCard: FC<ProfileCardProps> = props => {
         <Input
           value={profile.firstname}
           placeholder={tProfile('Firstname')}
+          onChange={onChangeFirstname}
+          readonly={readonly}
           className={cls.input}
         />
         <Input
           value={profile.lastname}
           placeholder={tProfile('Lastname')}
+          onChange={onChangeLastname}
+          readonly={readonly}
           className={cls.input}
         />
         <Input
           value={profile?.age}
           placeholder={tProfile('Age')}
-          className={cls.input}
           onChange={onChangeAge}
           readonly={readonly}
+          className={cls.input}
         />
         <Input
           value={profile?.city}
           placeholder={tProfile('City')}
-          className={cls.input}
           onChange={onChangeCity}
           readonly={readonly}
+          className={cls.input}
         />
         <Input
           value={profile?.username}
           placeholder={tProfile('Username')}
-          className={cls.input}
           onChange={onChangeUsername}
           readonly={readonly}
+          className={cls.input}
         />
         <Input
           value={profile?.avatar}
           placeholder={tProfile('Avatar')}
-          className={cls.input}
           onChange={onChangeAvatar}
           readonly={readonly}
+          className={cls.input}
         />
         <CurrencySelect
-          className={cls.input}
           value={profile?.currency}
           onChange={onChangeCurrency}
           readonly={readonly}
+          className={cls.input}
         />
         <CountrySelect
-          className={cls.input}
           value={profile?.country}
           onChange={onChangeCountry}
           readonly={readonly}
+          className={cls.input}
         />
       </form>
     </div>

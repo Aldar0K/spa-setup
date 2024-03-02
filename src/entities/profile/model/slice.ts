@@ -21,7 +21,7 @@ export const profileSlice = createSlice({
       state.readonly = true;
       state.form = state.data;
     },
-    updateProfile: (state, action: PayloadAction<Partial<Profile>>) => {
+    updateProfile: (state, action: PayloadAction<Profile>) => {
       state.form = {
         ...state.form,
         ...action.payload
@@ -39,6 +39,7 @@ export const profileSlice = createSlice({
         (state, action: PayloadAction<Profile>) => {
           state.isLoading = false;
           state.data = action.payload;
+          state.form = action.payload;
         }
       )
       .addCase(getProfileData.rejected, (state, action) => {

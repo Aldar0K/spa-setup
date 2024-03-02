@@ -7,9 +7,9 @@ import { Country } from 'entities/country';
 import { Currency } from 'entities/currency';
 import {
   ProfileCard,
-  getProfile,
   getProfileData,
   getProfileError,
+  getProfileForm,
   getProfileIsLoading,
   getProfileReadonly,
   profileActions,
@@ -29,7 +29,7 @@ interface ProfilePageProps {
 
 const ProfilePage = ({ className }: ProfilePageProps) => {
   const dispatch = useAppDispatch();
-  const profile = useAppSelector(getProfile);
+  const profileForm = useAppSelector(getProfileForm);
   const isLoadig = useAppSelector(getProfileIsLoading);
   const error = useAppSelector(getProfileError);
   const readonly = useAppSelector(getProfileReadonly);
@@ -99,7 +99,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
       <div className={className} data-testid='ProfilePage'>
         <Header />
         <ProfileCard
-          profile={profile}
+          profile={profileForm}
           isLoadig={isLoadig}
           error={error}
           readonly={readonly}
