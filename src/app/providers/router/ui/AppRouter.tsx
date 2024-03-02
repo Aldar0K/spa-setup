@@ -1,4 +1,4 @@
-import { FC, Suspense } from 'react';
+import { FC, Suspense, memo } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import { routeConfig } from 'shared/config/routeConfig';
@@ -11,11 +11,11 @@ const AppRouter: FC = () => (
         <Route
           key={path}
           path={path}
-          element={<div className="page-wrapper">{element}</div>}
+          element={<div className='page-wrapper'>{element}</div>}
         />
       ))}
     </Routes>
   </Suspense>
 );
 
-export default AppRouter;
+export default memo(AppRouter);
