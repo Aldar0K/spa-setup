@@ -23,22 +23,6 @@
   padding-top: var(--padding-m);
 }
 
-.link {
-  display: flex;
-  gap: var(--gap-m);
-  align-items: center;
-}
-
-.link__icon {
-  fill: var(--color-primary-inverted);
-}
-
-.link__text {
-  opacity: 1;
-
-  transition: all 150ms;
-}
-
 .switchers {
   display: flex;
   gap: var(--gap-l);
