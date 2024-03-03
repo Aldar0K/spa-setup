@@ -1,5 +1,6 @@
 import { Country } from 'entities/country';
 import { Currency } from 'entities/currency';
+import { ValidateProfileError } from './enums';
 
 export type Profile = {
   id?: string;
@@ -19,4 +20,5 @@ export type ProfileSchema = {
   isLoading: boolean;
   error?: string;
   readonly: boolean;
+  validateErrors?: ValidateProfileError[];
 };

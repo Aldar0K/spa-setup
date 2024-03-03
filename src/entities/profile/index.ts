@@ -1,3 +1,4 @@
+export { ValidateProfileError } from './model/enums';
 export { profileActions, profileReducer } from './model/slice';
 export type { Profile, ProfileSchema } from './model/types';
 
@@ -6,6 +7,7 @@ export { getProfileError } from './model/selectors/getProfileError/getProfileErr
 export { getProfileForm } from './model/selectors/getProfileForm/getProfileForm';
 export { getProfileIsLoading } from './model/selectors/getProfileIsLoading/getProfileIsLoading';
 export { getProfileReadonly } from './model/selectors/getProfileReadonly/getProfileReadonly';
+export { getProfileValidateErrors } from './model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 
 export { getProfileData } from './model/services/getProfileData/getProfileData';
 export { updateProfileData } from './model/services/updateProfileData/updateProfileData';

@@ -92,21 +92,21 @@ export const ProfileCard: FC<ProfileCardProps> = props => {
 
         <Input
           value={profile.firstname}
-          placeholder={tProfile('Your name')}
+          placeholder={tProfile('First name')}
           onChange={onChangeFirstname}
           readonly={readonly}
           className={cls.input}
         />
         <Input
           value={profile.lastname}
-          placeholder={tProfile('Name')}
+          placeholder={tProfile('Last name')}
           onChange={onChangeLastname}
           readonly={readonly}
           className={cls.input}
         />
         <Input
           value={profile?.username}
-          placeholder={tProfile('Last name')}
+          placeholder={tProfile('Username')}
           onChange={onChangeUsername}
           readonly={readonly}
           className={cls.input}

@@ -7,16 +7,20 @@ import { Country } from 'entities/country';
 import { Currency } from 'entities/currency';
 import {
   ProfileCard,
+  ValidateProfileError,
   getProfileData,
   getProfileError,
   getProfileForm,
   getProfileIsLoading,
   getProfileReadonly,
+  getProfileValidateErrors,
   profileActions,
   profileReducer
 } from 'entities/profile';
 import { useCallback, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader';
+import { Text } from 'shared/ui';
 import { Header } from './Header';
 
 const reducers: ReducerList = {
@@ -33,6 +37,21 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   const isLoadig = useAppSelector(getProfileIsLoading);
   const error = useAppSelector(getProfileError);
   const readonly = useAppSelector(getProfileReadonly);
+  const validateErrors = useAppSelector(getProfileValidateErrors);
+  const { t } = useTranslation('profile');
+
+  const validateErrorTranslates = {
+    [ValidateProfileError.NO_DATA]: t('No profile data'),
+    [ValidateProfileError.SERVER_ERROR]: t('Server error'),
+    [ValidateProfileError.INCORRECT_FIRSTNAME]: t('Incorrect first name'),
+    [ValidateProfileError.INCORRECT_LASTNAME]: t('Incorrect last name'),
+    [ValidateProfileError.INCORRECT_USERNAME]: t('Incorrect username'),
+    [ValidateProfileError.INCORRECT_AGE]: t('Incorrect age'),
+    [ValidateProfileError.INCORRECT_CITY]: t('Incorrect city'),
+    [ValidateProfileError.INCORRECT_COUNTRY]: t('Incorrect country'),
+    [ValidateProfileError.INCORRECT_CURRENCY]: t('Incorrect currency'),
+    [ValidateProfileError.INCORRECT_AVATAR_URL]: t('Incorrect avatar url')
+  };
 
   useEffect(() => {
     dispatch(getProfileData());
@@ -112,6 +131,14 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
           onChangeCurrency={onChangeCurrency}
           onChangeCountry={onChangeCountry}
         />
+        {validateErrors?.length && (
+          <Text
+            theme='error'
+            text={validateErrors
+              .map(error => validateErrorTranslates[error])
+              .join(', ')}
+          />
+        )}
       </div>
     </DynamicModuleLoader>
   );
