@@ -1,0 +1,16 @@
+import { useAppSelector } from 'app/providers/StoreProvider';
+import { getUserAuthData } from 'entities/user';
+import { ReactNode } from 'react';
+import { Navigate, useLocation } from 'react-router-dom';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+
+export const RequireAuth = ({ children }: { children: ReactNode }) => {
+  const auth = useAppSelector(getUserAuthData);
+  const location = useLocation();
+
+  if (!auth) {
+    return <Navigate to={RoutePath.main} state={{ from: location }} replace />;
+  }
+
+  return children;
+};
