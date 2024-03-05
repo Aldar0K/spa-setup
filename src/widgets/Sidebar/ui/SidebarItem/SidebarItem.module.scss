@@ -18,7 +18,10 @@
 }
 
 .collapsed {
-  .link {
+  gap: 0;
+  justify-content: center;
+
+  .text {
     width: 0;
 
     opacity: 0;
