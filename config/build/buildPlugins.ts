@@ -11,7 +11,8 @@ import { BuildOptions } from './types';
 export const buildPlugins = ({
   paths,
   isDev,
-  apiUrl
+  apiUrl,
+  project
 }: BuildOptions): webpack.WebpackPluginInstance[] => {
   const plugins = [
     new HtmlWebpackPlugin({
@@ -24,7 +25,8 @@ export const buildPlugins = ({
     }),
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
-      __API_URL__: JSON.stringify(apiUrl)
+      __API_URL__: JSON.stringify(apiUrl),
+      __PROJECT__: JSON.stringify(project)
     }),
     new CopyWebpackPlugin({
       patterns: [

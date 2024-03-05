@@ -54,7 +54,9 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   };
 
   useEffect(() => {
-    dispatch(getProfileData());
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(getProfileData());
+    }
   }, [dispatch]);
 
   const onChangeFirstname = useCallback(

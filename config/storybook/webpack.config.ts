@@ -1,10 +1,10 @@
-import path from "path";
-import { Configuration, DefinePlugin } from "webpack";
+import path from 'path';
+import { Configuration, DefinePlugin } from 'webpack';
 
-import { buildCssLoader, buildSvgLoader } from "../build/loaders";
+import { buildCssLoader, buildSvgLoader } from '../build/loaders';
 import { BuildPaths } from '../build/types';
 
-export default ({config}: {config: Configuration}) => {
+export default ({ config }: { config: Configuration }) => {
   const paths: BuildPaths = {
     build: '',
     html: '',
@@ -13,7 +13,7 @@ export default ({config}: {config: Configuration}) => {
     locales: '',
     buildLocales: '',
     meta: '',
-    buildMeta: '',
+    buildMeta: ''
   };
   config.resolve?.modules?.push(paths.src);
 
@@ -21,18 +21,24 @@ export default ({config}: {config: Configuration}) => {
 
   if (config.module?.rules) {
     config.module.rules = config.module.rules.map((rule: any) => {
-    if (/svg/.test(rule.test as string)) {
-      return { ...rule, exclude: /\.svg$/i };
-    }
+      if (/svg/.test(rule.test as string)) {
+        return { ...rule, exclude: /\.svg$/i };
+      }
 
-    return rule;
-  });
+      return rule;
+    });
   }
   config.module?.rules?.push(buildSvgLoader());
 
   config.module?.rules?.push(buildCssLoader(true));
 
-  config.plugins?.push(new DefinePlugin({ __IS_DEV__: true }));
+  config.plugins?.push(
+    new DefinePlugin({
+      __IS_DEV__: true,
+      __API__: JSON.stringify(''),
+      __PROJECT__: JSON.stringify('storybook')
+    })
+  );
 
   return config;
-}
+};

@@ -10,6 +10,7 @@ export type BuildOptions = {
   isDev: boolean;
   port: number;
   apiUrl: string;
+  project: 'storybook' | 'jest' | 'frontend';
 };
 
 export type BuildMode = 'production' | 'development';
