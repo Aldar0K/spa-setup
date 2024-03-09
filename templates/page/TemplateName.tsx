@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import styles from './TemplateName.module.scss';
@@ -13,4 +13,4 @@ const TemplateName: FC = () => {
   )
 };
 
-export default TemplateName;
+export default memo(TemplateName);
