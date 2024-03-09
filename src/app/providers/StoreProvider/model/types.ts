@@ -2,9 +2,10 @@ import {
   Action,
   EnhancedStore,
   Reducer,
-  ReducersMapObject,
+  ReducersMapObject
 } from '@reduxjs/toolkit';
 
+import { ArticleDetailsSchema } from 'entities/article';
 import { CounterSchema } from 'entities/counter';
 import { ProfileSchema } from 'entities/profile';
 import { UserSchema } from 'entities/user';
@@ -17,6 +18,7 @@ export type StateSchema = {
   // async reducers
   loginByUsername?: LoginByUsernameSchema;
   profile?: ProfileSchema;
+  articleDetails?: ArticleDetailsSchema;
 };
 
 export type StateSchemaKey = keyof StateSchema;

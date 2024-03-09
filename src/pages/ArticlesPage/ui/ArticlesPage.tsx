@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import styles from './ArticlesPage.module.scss';
 
 const ArticlesPage: FC = () => {
+  // TODO add locales file
   const { t } = useTranslation('articles');
 
   return (
