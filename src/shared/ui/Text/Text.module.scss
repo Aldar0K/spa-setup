@@ -6,12 +6,10 @@
 
 .heading {
   color: var(--color-primary-inverted);
-  font: var(--font-l);
 }
 
 .text {
   color: var(--color-secondary-inverted);
-  font: var(--font-m);
 }
 
 .primary {
@@ -38,4 +36,34 @@
 
 .right {
   text-align: right;
+}
+
+.s {
+  .heading {
+    font: var(--font-m);
+  }
+
+  .text {
+    font: var(--font-s);
+  }
+}
+
+.m {
+  .heading {
+    font: var(--font-l);
+  }
+
+  .text {
+    font: var(--font-m);
+  }
+}
+
+.l {
+  .heading {
+    font: var(--font-xl);
+  }
+
+  .text {
+    font: var(--font-l);
+  }
 }

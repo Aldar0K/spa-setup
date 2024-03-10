@@ -16,6 +16,11 @@
   --font-line-l: 40px;
   --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-primary);
 
+  --font-size-xl: 40px;
+  --font-line-xl: 48px;
+  --font-xl: var(--font-size-xl) / var(--font-line-xl)
+    var(--font-family-primary);
+
   // height
   --height-navbar: 50px;
 

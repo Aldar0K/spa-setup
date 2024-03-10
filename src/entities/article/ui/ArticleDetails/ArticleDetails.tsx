@@ -6,9 +6,11 @@ import {
   useAppDispatch,
   useAppSelector
 } from 'app/providers/StoreProvider';
+import IconCalendar from 'shared/assets/icons/calendar-20-20.svg';
+import IconEye from 'shared/assets/icons/eye-20-20.svg';
 import { classNames } from 'shared/lib';
 import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader';
-import { Skeleton, Text } from 'shared/ui';
+import { Avatar, Icon, Skeleton, Text } from 'shared/ui';
 import {
   getArticleDetailsData,
   getArticleDetailsError,
@@ -48,7 +50,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = props => {
           height={200}
           width={200}
           border='50%'
-          className={cls.skeleton__avatar}
+          className={cls.avatar}
         />
         <Skeleton height={32} width={300} />
         <Skeleton height={24} width={600} />
@@ -65,7 +67,20 @@ export const ArticleDetails: FC<ArticleDetailsProps> = props => {
   }
 
   if (article) {
-    content = <>{article?.title}</>;
+    content = (
+      <>
+        <Avatar src={article.img} size={200} className={cls.avatar} />
+        <Text heading={article.title} text={article.subtitle} size='l' />
+        <div className={cls.views}>
+          <Icon SVG={IconEye} />
+          <Text text={article.views.toString()} />
+        </div>
+        <div className={cls.date}>
+          <Icon SVG={IconCalendar} />
+          <Text text={article.createdAt} />
+        </div>
+      </>
+    );
   }
 
   return (

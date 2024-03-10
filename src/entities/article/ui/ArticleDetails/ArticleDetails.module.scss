@@ -1,5 +1,21 @@
 .container {
+  display: flex;
+
+  flex-direction: column;
+  gap: 20px;
+
   height: 100%;
+}
+
+.avatar {
+  align-self: center;
+}
+
+.views,
+.date {
+  display: flex;
+  gap: var(--gap-s);
+  align-items: center;
 }
 
 .skeleton {
@@ -7,8 +23,4 @@
 
   flex-direction: column;
   gap: 20px;
-}
-
-.skeleton__avatar {
-  align-self: center;
 }

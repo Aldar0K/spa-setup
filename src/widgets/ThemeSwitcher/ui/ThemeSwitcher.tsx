@@ -5,24 +5,30 @@ import IconLight from 'shared/assets/icons/theme-light.svg';
 
 import { AppThemes, useTheme } from 'app/providers/ThemeProvider';
 import { classNames } from 'shared/lib';
-import { Button } from 'shared/ui';
+import { Button, Icon } from 'shared/ui';
 
 type ThemeSwitcherProps = {
   className?: string;
 };
 
-export const ThemeSwitcher: FC<ThemeSwitcherProps> = (props) => {
+export const ThemeSwitcher: FC<ThemeSwitcherProps> = props => {
   const { className } = props;
   const { theme, toggleTheme } = useTheme();
 
   return (
     <Button
-      theme="clear"
+      theme='clear'
       className={classNames('', {}, [className])}
       onClick={toggleTheme}
     >
-      <IconLight className={theme === AppThemes.LIGHT ? '' : 'hidden'} />
-      <IconDark className={theme === AppThemes.DARK ? '' : 'hidden'} />
+      <Icon
+        SVG={IconLight}
+        className={theme === AppThemes.LIGHT ? '' : 'hidden'}
+      />
+      <Icon
+        SVG={IconDark}
+        className={theme === AppThemes.DARK ? '' : 'hidden'}
+      />
     </Button>
   );
 };
