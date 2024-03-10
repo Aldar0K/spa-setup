@@ -8,7 +8,7 @@ import {
 } from 'app/providers/StoreProvider';
 import { classNames } from 'shared/lib';
 import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader';
-import { Text } from 'shared/ui';
+import { Skeleton, Text } from 'shared/ui';
 import {
   getArticleDetailsData,
   getArticleDetailsError,
@@ -42,11 +42,26 @@ export const ArticleDetails: FC<ArticleDetailsProps> = props => {
   let content: JSX.Element | null = null;
 
   if (isLoading) {
-    content = <Text heading={t('Loading')} />;
+    content = (
+      <div className={cls.skeleton}>
+        <Skeleton
+          height={200}
+          width={200}
+          border='50%'
+          className={cls.skeleton__avatar}
+        />
+        <Skeleton height={32} width={300} />
+        <Skeleton height={24} width={600} />
+        <Skeleton height={200} width='100%' />
+        <Skeleton height={200} width='100%' />
+      </div>
+    );
   }
 
   if (error) {
-    content = <Text theme='error' heading={`${t('Error')}: ${error}`} />;
+    content = (
+      <Text theme='error' align='center' heading={`${t('Error')}: ${error}`} />
+    );
   }
 
   if (article) {
