@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react';
+import { FC, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import {
@@ -18,6 +18,13 @@ import {
 } from '../../model/selectors';
 import { fetchArticleById } from '../../model/services/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slice';
+import {
+  ArticleBlock,
+  ArticleBlockType
+} from '../../model/types/article-block';
+import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent';
+import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent';
 import cls from './ArticleDetails.module.scss';
 
 const reducers: ReducerList = {
@@ -36,6 +43,19 @@ export const ArticleDetails: FC<ArticleDetailsProps> = props => {
   const isLoading = useAppSelector(getArticleDetailsIsLoading);
   const error = useAppSelector(getArticleDetailsError);
   const article = useAppSelector(getArticleDetailsData);
+
+  const renderBlock = useCallback((block: ArticleBlock) => {
+    switch (block.type) {
+      case ArticleBlockType.CODE:
+        return <ArticleCodeBlockComponent />;
+      case ArticleBlockType.IMAGE:
+        return <ArticleImageBlockComponent />;
+      case ArticleBlockType.TEXT:
+        return <ArticleTextBlockComponent block={block} />;
+      default:
+        return null;
+    }
+  }, []);
 
   useEffect(() => {
     dispatch(fetchArticleById(articleId));
@@ -79,6 +99,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = props => {
           <Icon SVG={IconCalendar} />
           <Text text={article.createdAt} />
         </div>
+        <ul className={cls.blocks}>{article.blocks.map(renderBlock)}</ul>
       </>
     );
   }
