@@ -47,11 +47,11 @@ export const ArticleDetails: FC<ArticleDetailsProps> = props => {
   const renderBlock = useCallback((block: ArticleBlock) => {
     switch (block.type) {
       case ArticleBlockType.CODE:
-        return <ArticleCodeBlockComponent />;
+        return <ArticleCodeBlockComponent block={block} />;
       case ArticleBlockType.IMAGE:
         return <ArticleImageBlockComponent />;
       case ArticleBlockType.TEXT:
-        return <ArticleTextBlockComponent block={block} />;
+        return <ArticleTextBlockComponent block={block}  />;
       default:
         return null;
     }

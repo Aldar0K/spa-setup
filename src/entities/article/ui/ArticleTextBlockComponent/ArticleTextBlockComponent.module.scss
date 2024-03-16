@@ -1,8 +1,7 @@
 .container {
-}
-
-.title {
-  margin-bottom: var(--gap-m);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-m);
 }
 
 .paragraphs {
@@ -10,4 +9,3 @@
   flex-direction: column;
   gap: var(--gap-s);
 }
- 
