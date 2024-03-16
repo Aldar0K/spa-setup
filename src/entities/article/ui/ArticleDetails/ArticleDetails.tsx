@@ -49,7 +49,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = props => {
       case ArticleBlockType.CODE:
         return <ArticleCodeBlockComponent block={block} />;
       case ArticleBlockType.IMAGE:
-        return <ArticleImageBlockComponent />;
+        return <ArticleImageBlockComponent block={block} />;
       case ArticleBlockType.TEXT:
         return <ArticleTextBlockComponent block={block}  />;
       default:
