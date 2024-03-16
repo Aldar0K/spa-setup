@@ -1,20 +1,22 @@
-import { FC, ReactNode, memo } from 'react';
+import { FC, memo, useCallback } from 'react';
 
+import IconCopy from 'shared/assets/icons/copy-20-20.svg';
 import { classNames } from 'shared/lib';
 import { Button } from '../Button';
+import { Icon } from '../Icon';
 import cls from './Code.module.scss';
 
 type CodeProps = {
-  children: ReactNode;
+  text: string;
   className?: string;
 };
 
 export const Code: FC<CodeProps> = memo(props => {
-  const { children, className } = props;
+  const { text, className } = props;
 
-  const copyToClipboard = () => {
-    children && navigator.clipboard.writeText(children?.toString());
-  };
+  const copyToClipboard = useCallback(() => {
+    navigator.clipboard.writeText(text);
+  }, [text]);
 
   return (
     <pre
@@ -22,10 +24,10 @@ export const Code: FC<CodeProps> = memo(props => {
       onClick={copyToClipboard}
       data-testid='Code'
     >
-      <Button size='small' className={cls['button-copy']}>
-        Copy
+      <Button size='medium' theme='clear' className={cls['button-copy']}>
+        <Icon SVG={IconCopy} className={cls['icon-copy']} />
       </Button>
-      <code>{children}</code>
+      <code>{text}</code>
     </pre>
   );
 });

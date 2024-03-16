@@ -2,9 +2,9 @@ import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from 'shared/lib';
-import cls from './ArticleCodeBlockComponent.module.scss';
-import { ArticleCodeBlock } from '../../model/types/article-block';
 import { Code } from 'shared/ui';
+import { ArticleCodeBlock } from '../../model/types/article-block';
+import cls from './ArticleCodeBlockComponent.module.scss';
 
 type ArticleCodeBlockComponentProps = {
   block: ArticleCodeBlock;
@@ -21,7 +21,7 @@ export const ArticleCodeBlockComponent: FC<ArticleCodeBlockComponentProps> =
         className={classNames(cls.container, {}, [className])}
         data-testid='ArticleCodeBlockComponent'
       >
-        <Code children={block.code} />
+        <Code text={block.code} />
       </li>
     );
   });

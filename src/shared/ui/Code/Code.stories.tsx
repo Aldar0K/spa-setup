@@ -16,14 +16,14 @@ type Story = StoryObj<typeof meta>;
 
 export const DefaultLight: Story = {
   args: {
-    children: 'export default meta;\n' + 'type Story = StoryObj<typeof meta>;'
+    text: 'export default meta;\n' + 'type Story = StoryObj<typeof meta>;'
   },
   decorators: [withThemeDecorator(AppThemes.LIGHT)]
 };
 
 export const DefaultDark: Story = {
   args: {
-    children: 'export default meta;\n' + 'type Story = StoryObj<typeof meta>;'
+    text: 'export default meta;\n' + 'type Story = StoryObj<typeof meta>;'
   },
   decorators: [withThemeDecorator(AppThemes.DARK)]
 };
