@@ -2,7 +2,7 @@ import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from 'shared/lib';
-import { Avatar, Text } from 'shared/ui';
+import { Avatar, Skeleton, Text } from 'shared/ui';
 import { Comment } from '../../model/types';
 import cls from './CommentCard.module.scss';
 
@@ -15,6 +15,26 @@ type CommentCardProps = {
 export const CommentCard: FC<CommentCardProps> = memo(props => {
   const { comment, isLoading, className } = props;
   const { t } = useTranslation();
+
+  if (isLoading) {
+    return (
+      <li
+        className={classNames(cls.container, {}, [className])}
+        data-testid='CommentCard'
+      >
+        <header className={cls.header}>
+          <Skeleton
+            width={30}
+            height={30}
+            border='50%'
+            className={cls.avatar}
+          />
+          <Skeleton width={100} height={16} className={cls.username} />
+        </header>
+        <Skeleton width='100%' height={50} className={cls.text} />
+      </li>
+    );
+  }
 
   return (
     <li

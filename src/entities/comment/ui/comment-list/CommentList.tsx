@@ -10,12 +10,19 @@ import cls from './CommentList.module.scss';
 type CommentListProps = {
   comments?: Comment[];
   isLoading?: boolean;
+  error?: string;
   className?: string;
 };
 
 export const CommentList: FC<CommentListProps> = memo(props => {
-  const { comments, isLoading, className } = props;
+  const { comments, isLoading, error, className } = props;
   const { t } = useTranslation();
+
+  if (error) {
+    return (
+      <Text text={`${t('Failed to load comments')}: ${error}`} theme='error' />
+    );
+  }
 
   return (
     <ul
@@ -31,7 +38,7 @@ export const CommentList: FC<CommentListProps> = memo(props => {
           />
         ))
       ) : (
-        <Text heading={t('No comments')} />
+        <Text text={t('No comments')} />
       )}
     </ul>
   );
