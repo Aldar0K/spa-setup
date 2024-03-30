@@ -8,7 +8,7 @@ import { Currency } from 'entities/currency';
 import {
   ProfileCard,
   ValidateProfileError,
-  getProfileData,
+  fetchProfileData,
   getProfileError,
   getProfileForm,
   getProfileIsLoading,
@@ -19,6 +19,7 @@ import {
 } from 'entities/profile';
 import { useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
 import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader';
 import { Text } from 'shared/ui';
 import { Header } from './Header';
@@ -27,12 +28,17 @@ const reducers: ReducerList = {
   profile: profileReducer
 };
 
-interface ProfilePageProps {
+type Params = {
+  profileId: string;
+};
+
+type ProfilePageProps = {
   className?: string;
-}
+};
 
 const ProfilePage = ({ className }: ProfilePageProps) => {
   const dispatch = useAppDispatch();
+  const { profileId } = useParams<Params>();
   const profileForm = useAppSelector(getProfileForm);
   const isLoadig = useAppSelector(getProfileIsLoading);
   const error = useAppSelector(getProfileError);
@@ -55,7 +61,9 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 
   useEffect(() => {
     if (__PROJECT__ !== 'storybook') {
-      dispatch(getProfileData());
+      if (profileId) {
+        dispatch(fetchProfileData(profileId));
+      }
     }
   }, [dispatch]);
 

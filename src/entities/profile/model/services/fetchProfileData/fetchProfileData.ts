@@ -4,14 +4,13 @@ import { ThunkConfig } from 'app/providers/StoreProvider';
 import i18n from 'shared/config/i18n/i18n';
 import { Profile } from '../../types';
 
-// TODO rename to fetchProfileData (use get... only for selectors)
-export const getProfileData = createAsyncThunk<
+export const fetchProfileData = createAsyncThunk<
   Profile,
-  void,
+  string,
   ThunkConfig<string>
->('profile/getProfileData', async (_, { extra, rejectWithValue }) => {
+>('profile/fetchProfileData', async (profileId, { extra, rejectWithValue }) => {
   try {
-    const response = await extra.api.get<Profile>('profile');
+    const response = await extra.api.get<Profile>(`profiles/${profileId}`);
 
     if (!response.data) {
       throw new Error();
