@@ -1,8 +1,9 @@
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib';
-import { Avatar, Skeleton, Text } from 'shared/ui';
+import { AppLink, Avatar, Skeleton, Text } from 'shared/ui';
 import { Comment } from '../../model/types';
 import cls from './CommentCard.module.scss';
 
@@ -41,7 +42,10 @@ export const CommentCard: FC<CommentCardProps> = memo(props => {
       className={classNames(cls.container, {}, [className])}
       data-testid='CommentCard'
     >
-      <header className={cls.header}>
+      <AppLink
+        to={`${RoutePath.profile}/${comment.user.id}`}
+        className={cls.header}
+      >
         {comment.user.avatar ? (
           <Avatar src={comment.user.avatar} size={30} className={cls.avatar} />
         ) : (
@@ -49,7 +53,7 @@ export const CommentCard: FC<CommentCardProps> = memo(props => {
           <Avatar size={30} className={cls.avatar} />
         )}
         <Text text={comment.user.username} className={cls.username} />
-      </header>
+      </AppLink>
       <Text text={comment.text} />
     </li>
   );
