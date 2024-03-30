@@ -9,6 +9,7 @@ import { ArticleDetailsSchema } from 'entities/article';
 import { CounterSchema } from 'entities/counter';
 import { ProfileSchema } from 'entities/profile';
 import { UserSchema } from 'entities/user';
+import { AddCommentSchema } from 'features/user/add-comment';
 import { LoginByUsernameSchema } from 'features/user/login-by-username';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 
@@ -21,6 +22,7 @@ export type StateSchema = {
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
   articleDetailsComments?: ArticleDetailsCommentsSchema;
+  addComment?: AddCommentSchema;
 };
 
 export type StateSchemaKey = keyof StateSchema;

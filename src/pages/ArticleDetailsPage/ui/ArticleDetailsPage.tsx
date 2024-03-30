@@ -8,6 +8,7 @@ import {
 } from 'app/providers/StoreProvider';
 import { ArticleDetails } from 'entities/article';
 import { CommentList } from 'entities/comment';
+import { AddCommentForm } from 'features/user/add-comment';
 import { useParams } from 'react-router-dom';
 import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader';
 import { Text } from 'shared/ui';
@@ -59,6 +60,7 @@ const ArticleDetailsPage: FC = () => {
           className={styles['article-details']}
         />
         <Text heading={t('Comments')} className={styles['comments-heading']} />
+        <AddCommentForm className={styles['add-comment-form']} />
         <CommentList
           className={styles.comments}
           comments={comments}
