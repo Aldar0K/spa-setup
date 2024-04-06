@@ -1,4 +1,4 @@
-import { FC, memo, useEffect } from 'react';
+import { FC, memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import {
@@ -13,9 +13,12 @@ import { useParams } from 'react-router-dom';
 import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader';
 import { Text } from 'shared/ui';
 import {
+  getAddCommentError,
+  getAddCommentIsLoading,
   getArticleCommentsError,
   getArticleCommentsIsLoading
 } from '../model/selectors';
+import { addCommentForArticle } from '../model/services/addCommentForArticle';
 import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId';
 import {
   ArticleDetailsCommentsReducer,
@@ -39,6 +42,15 @@ const ArticleDetailsPage: FC = () => {
   const comments = useAppSelector(getArticleComments.selectAll);
   const isLoading = useAppSelector(getArticleCommentsIsLoading);
   const error = useAppSelector(getArticleCommentsError);
+  const addCommentIsLoading = useAppSelector(getAddCommentIsLoading);
+  const addCommentError = useAppSelector(getAddCommentError);
+
+  const onSendComment = useCallback(
+    (text: string) => {
+      dispatch(addCommentForArticle(text));
+    },
+    [dispatch]
+  );
 
   useEffect(() => {
     dispatch(fetchCommentsByArticleId(articleId));
@@ -60,7 +72,12 @@ const ArticleDetailsPage: FC = () => {
           className={styles['article-details']}
         />
         <Text heading={t('Comments')} className={styles['comments-heading']} />
-        <AddCommentForm className={styles['add-comment-form']} />
+        <AddCommentForm
+          onSendComment={onSendComment}
+          isLoading={addCommentIsLoading}
+          error={addCommentError}
+          className={styles['add-comment-form']}
+        />
         <CommentList
           className={styles.comments}
           comments={comments}
