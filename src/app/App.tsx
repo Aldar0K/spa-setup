@@ -4,8 +4,8 @@ import './styles/main.scss';
 
 import { userActions } from 'entities/user';
 import { classNames } from 'shared/lib';
-import { Header } from 'widgets/Header';
-import { Sidebar } from 'widgets/Sidebar';
+import { Header } from 'widgets/header-rename';
+import { Sidebar } from 'widgets/sidebar-rename';
 import { useAppDispatch } from './providers/StoreProvider';
 import { useTheme } from './providers/ThemeProvider';
 import { AppRouter } from './providers/router';
@@ -19,10 +19,10 @@ const App: FC = () => {
   }, [dispatch]);
 
   return (
-    <Suspense fallback="">
+    <Suspense fallback=''>
       <div className={classNames('app', {}, [theme])}>
         <Header />
-        <div className="app__content">
+        <div className='app__content'>
           <Sidebar />
           <AppRouter />
         </div>
