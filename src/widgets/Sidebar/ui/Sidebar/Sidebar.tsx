@@ -1,11 +1,12 @@
 import { FC, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { useAppSelector } from 'app/providers/StoreProvider';
 import { classNames } from 'shared/lib';
 import { Button } from 'shared/ui';
 import { LangSwitcher } from 'widgets/LangSwitcher';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
-import { sidebarItemsList } from '../../model/items';
+import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import cls from './Sidebar.module.scss';
 
@@ -17,10 +18,11 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
   const { t } = useTranslation();
   const [collapsed, setCollapsed] = useState(false);
   const toggleCollapsed = () => setCollapsed(prev => !prev);
+  const sidebarItems = useAppSelector(getSidebarItems);
 
   const itemsList = useMemo(
     () =>
-      sidebarItemsList.map(item => (
+      sidebarItems.map(item => (
         <SidebarItem item={item} collapsed={collapsed} key={item.path} />
       )),
     [collapsed]

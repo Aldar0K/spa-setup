@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink, AppLinkThemes, Icon } from 'shared/ui';
-import { SidebarItemType } from '../../model/items';
+import { SidebarItemType } from '../../model/types';
 import cls from './SidebarItem.module.scss';
 
 type SidebarItemProps = {
