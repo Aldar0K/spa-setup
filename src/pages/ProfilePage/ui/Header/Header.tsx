@@ -1,13 +1,15 @@
-import { FC, useCallback } from 'react';
+import { FC, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button, Text } from 'shared/ui';
 
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
 import {
+  getProfileData,
   getProfileReadonly,
   profileActions,
   updateProfileData
 } from 'entities/profile';
+import { getUserAuthData } from 'entities/user';
 import { classNames } from 'shared/lib';
 import cls from './Header.module.scss';
 
@@ -21,6 +23,12 @@ export const Header: FC<HeaderProps> = props => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const readonly = useAppSelector(getProfileReadonly);
+  const authData = useAppSelector(getUserAuthData);
+  const profileData = useAppSelector(getProfileData);
+
+  const isPossibleToEdit = useMemo(() => {
+    return authData?.id === profileData?.id;
+  }, [authData, profileData]);
 
   const onEdit = useCallback(() => {
     dispatch(profileActions.setReadonly(false));
@@ -41,34 +49,36 @@ export const Header: FC<HeaderProps> = props => {
     >
       <Text heading={tProfile('Profile')} />
 
-      <div className={cls.buttons}>
-        {readonly ? (
-          <Button
-            theme='outline'
-            onClick={onEdit}
-            className={cls['button-edit']}
-          >
-            {t('Edit')}
-          </Button>
-        ) : (
-          <>
+      {isPossibleToEdit && (
+        <div className={cls.buttons}>
+          {readonly ? (
             <Button
               theme='outline'
-              onClick={onCancelEdit}
-              className={cls['button-cancel']}
+              onClick={onEdit}
+              className={cls['button-edit']}
             >
-              {t('Cancel')}
+              {t('Edit')}
             </Button>
-            <Button
-              theme='outline'
-              onClick={onSave}
-              className={cls['button-save']}
-            >
-              {t('Save')}
-            </Button>
-          </>
-        )}
-      </div>
+          ) : (
+            <>
+              <Button
+                theme='outline'
+                onClick={onCancelEdit}
+                className={cls['button-cancel']}
+              >
+                {t('Cancel')}
+              </Button>
+              <Button
+                theme='outline'
+                onClick={onSave}
+                className={cls['button-save']}
+              >
+                {t('Save')}
+              </Button>
+            </>
+          )}
+        </div>
+      )}
     </div>
   );
 };
