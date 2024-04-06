@@ -4,8 +4,8 @@ import './styles/main.scss';
 
 import { userActions } from 'entities/user';
 import { classNames } from 'shared/lib';
-import { Header } from 'widgets/header-rename';
-import { Sidebar } from 'widgets/sidebar-rename';
+import { Header } from 'widgets/header';
+import { Sidebar } from 'widgets/sidebar';
 import { useAppDispatch } from './providers/StoreProvider';
 import { useTheme } from './providers/ThemeProvider';
 import { AppRouter } from './providers/router';
